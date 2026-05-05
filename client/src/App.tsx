@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
+import { useEffect } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { CartProvider } from "./contexts/CartContext";
@@ -29,6 +30,15 @@ import NotFound from "./pages/NotFound";
 const ANNOUNCEMENT_H = 40;
 const NAV_H = 72; // max nav height (desktop)
 
+// Scrolls to top on every route change
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+  return null;
+}
+
 function Router() {
   const { visible: announcementVisible } = useAnnouncement();
   // Total fixed header height — used to push page content below the fixed bars
@@ -42,6 +52,9 @@ function Router() {
 
       {/* Spacer so content starts below the fixed header */}
       <div style={{ height: `${headerOffset}px`, flexShrink: 0 }} />
+
+      {/* Scroll to top on every navigation */}
+      <ScrollToTop />
 
       <main className="flex-1">
         <Switch>

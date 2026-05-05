@@ -1,5 +1,6 @@
 // Product Detail Page — "Clarity" Design System
 import { useParams, Link } from "wouter";
+import { useEffect } from "react";
 import { ShoppingBag, CheckCircle, ArrowRight, Star, ChevronLeft, Music, CloudRain } from "lucide-react";
 import { getProductBySlug, products } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
@@ -11,6 +12,11 @@ export default function ProductDetail() {
   const product = getProductBySlug(slug || "");
   const { addItem, isInCart } = useCart();
 
+  // Scroll to top whenever the product slug changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
+
   if (!product) {
     return (
       <div className="pt-32 text-center min-h-screen flex flex-col items-center justify-center" style={{ background: "#faf9f7" }}>
@@ -21,7 +27,10 @@ export default function ProductDetail() {
   }
 
   const inCart = isInCart(product.id);
-  const related = products.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
+  // Try same-category first, fall back to any other products to always show 3
+  const sameCategory = products.filter(p => p.id !== product.id && p.category === product.category);
+  const otherProducts = products.filter(p => p.id !== product.id && p.category !== product.category);
+  const related = [...sameCategory, ...otherProducts].slice(0, 3);
 
   const handleAddToCart = () => {
     addItem({ id: product.id, name: product.name, price: product.price, image: product.cardImage, type: "product" });
