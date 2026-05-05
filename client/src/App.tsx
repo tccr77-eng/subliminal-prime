@@ -4,6 +4,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { CartProvider } from "./contexts/CartContext";
+import { AnnouncementProvider, useAnnouncement } from "./contexts/AnnouncementContext";
 import Navigation from "./components/Navigation";
 import AnnouncementBar from "./components/AnnouncementBar";
 import Footer from "./components/Footer";
@@ -25,11 +26,23 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import NotFound from "./pages/NotFound";
 
+const ANNOUNCEMENT_H = 40;
+const NAV_H = 72; // max nav height (desktop)
+
 function Router() {
+  const { visible: announcementVisible } = useAnnouncement();
+  // Total fixed header height — used to push page content below the fixed bars
+  const headerOffset = (announcementVisible ? ANNOUNCEMENT_H : 0) + NAV_H;
+
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#faf9f7" }}>
+      {/* Fixed bars — rendered outside normal flow */}
       <AnnouncementBar />
       <Navigation />
+
+      {/* Spacer so content starts below the fixed header */}
+      <div style={{ height: `${headerOffset}px`, flexShrink: 0 }} />
+
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
@@ -58,12 +71,14 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <CartProvider>
-          <TooltipProvider>
-            <Toaster position="bottom-right" richColors />
-            <Router />
-          </TooltipProvider>
-        </CartProvider>
+        <AnnouncementProvider>
+          <CartProvider>
+            <TooltipProvider>
+              <Toaster position="bottom-right" richColors />
+              <Router />
+            </TooltipProvider>
+          </CartProvider>
+        </AnnouncementProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

@@ -43,7 +43,7 @@ export default function Checkout() {
 
   if (items.length === 0) {
     return (
-      <div style={{ background: "#faf9f7" }} className="pt-16 min-h-screen flex items-center justify-center">
+      <div style={{ background: "#faf9f7" }} className="min-h-screen flex items-center justify-center">
         <div className="text-center px-5">
           <h2 className="text-3xl font-800 text-[#1a1f2e] mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>Nothing to check out</h2>
           <Link href="/shop"><button className="btn-primary">Browse Programs</button></Link>
@@ -53,7 +53,7 @@ export default function Checkout() {
   }
 
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-12 lg:py-16">
         <Link href="/cart">
           <button className="flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#1a1f2e] transition-colors mb-8">

@@ -4,7 +4,7 @@ import { CheckCircle, Download, Mail, ArrowRight } from "lucide-react";
 
 export default function OrderConfirmation() {
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16 min-h-screen flex items-center">
+    <div style={{ background: "#faf9f7" }} className="min-h-screen flex items-center">
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-16 w-full">
         <div className="max-w-xl mx-auto text-center">
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: "#dcfce7" }}>

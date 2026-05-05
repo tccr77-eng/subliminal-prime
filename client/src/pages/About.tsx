@@ -5,7 +5,7 @@ import { ABOUT_IMAGE, HERO_WOMAN } from "@/lib/products";
 
 export default function About() {
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ minHeight: 520 }}>
         <div className="absolute inset-0">

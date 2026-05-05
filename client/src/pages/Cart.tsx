@@ -8,7 +8,7 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div style={{ background: "#faf9f7" }} className="pt-16 min-h-screen flex items-center justify-center">
+      <div style={{ background: "#faf9f7" }} className="min-h-screen flex items-center justify-center">
         <div className="text-center px-5">
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: "#f2f0ec" }}>
             <ShoppingBag size={32} className="text-[#9ca3af]" />
@@ -22,7 +22,7 @@ export default function Cart() {
   }
 
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-12 lg:py-16">
         <h1 className="text-4xl font-800 text-[#1a1f2e] mb-10" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>
           Your Cart ({totalItems} {totalItems === 1 ? "item" : "items"})

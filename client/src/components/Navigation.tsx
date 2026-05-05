@@ -1,15 +1,22 @@
 // Navigation — "Clarity" Design System
 // Apple-inspired: clean, minimal, translucent on scroll
+// Dynamically offsets below the announcement bar when it is visible
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { useAnnouncement } from "@/contexts/AnnouncementContext";
+
+const ANNOUNCEMENT_H = 40; // px — must match AnnouncementBar height
+const NAV_H_MOBILE = 64;   // h-16
+const NAV_H_DESKTOP = 72;  // lg:h-[72px]
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { totalItems } = useCart();
   const [location] = useLocation();
+  const { visible: announcementVisible } = useAnnouncement();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -21,7 +28,8 @@ export default function Navigation() {
     setMobileOpen(false);
   }, [location]);
 
-  // Offset accounts for announcement bar (~40px)
+  const topOffset = announcementVisible ? ANNOUNCEMENT_H : 0;
+
   const navLinks = [
     { href: "/shop", label: "Shop" },
     { href: "/bundles", label: "Bundles" },
@@ -32,7 +40,8 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        style={{ top: `${topOffset}px` }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/90 backdrop-blur-xl border-b border-[#e4e2de] shadow-sm"
             : "bg-transparent"
@@ -42,7 +51,10 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
             <Link href="/">
-              <span className="font-display font-800 text-xl tracking-tight text-[#1a1f2e] cursor-pointer select-none" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>
+              <span
+                className="font-display text-xl tracking-tight text-[#1a1f2e] cursor-pointer select-none"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}
+              >
                 Subliminal<span style={{ color: "#4f6ef7" }}>Prime</span>
               </span>
             </Link>
@@ -101,11 +113,17 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-16">
+        <div
+          className="fixed inset-0 z-40 bg-white"
+          style={{ paddingTop: `${topOffset + NAV_H_MOBILE}px` }}
+        >
           <div className="flex flex-col px-6 py-8 gap-2">
             {navLinks.map(link => (
               <Link key={link.href} href={link.href}>
-                <span className="block py-4 text-2xl font-display font-700 text-[#1a1f2e] border-b border-[#e4e2de] cursor-pointer" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
+                <span
+                  className="block py-4 text-2xl text-[#1a1f2e] border-b border-[#e4e2de] cursor-pointer"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}
+                >
                   {link.label}
                 </span>
               </Link>

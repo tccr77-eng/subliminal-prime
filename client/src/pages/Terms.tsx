@@ -1,7 +1,7 @@
 // Terms of Service Page
 export default function Terms() {
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-16">
         <div className="max-w-3xl">
           <div className="section-label mb-4">Legal</div>

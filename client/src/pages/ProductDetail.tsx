@@ -29,7 +29,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       {/* Breadcrumb */}
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pt-8 pb-4">
         <Link href="/shop">
@@ -43,7 +43,7 @@ export default function ProductDetail() {
       <section className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Image */}
-          <div className="rounded-2xl overflow-hidden sticky top-24" style={{ aspectRatio: "3/4", background: "#f2f0ec" }}>
+          <div className="rounded-2xl overflow-hidden sticky top-4" style={{ aspectRatio: "3/4", background: "#f2f0ec" }}>
             <img src={product.cardImage} alt={product.name} className="w-full h-full object-cover" />
           </div>
 

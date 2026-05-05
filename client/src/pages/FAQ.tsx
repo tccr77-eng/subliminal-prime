@@ -63,7 +63,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       <section className="section-py pb-12" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="section-label mb-4">Help Centre</div>

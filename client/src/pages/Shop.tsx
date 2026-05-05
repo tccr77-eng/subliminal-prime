@@ -13,7 +13,7 @@ export default function Shop() {
     : products.filter(p => p.category === activeCategory);
 
   return (
-    <div style={{ background: "#faf9f7" }} className="pt-16">
+    <div style={{ background: "#faf9f7" }}>
       {/* Header */}
       <section className="section-py pb-12" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
@@ -27,8 +27,8 @@ export default function Shop() {
         </div>
       </section>
 
-      {/* Filter bar */}
-      <div className="sticky top-[64px] lg:top-[72px] z-30 bg-white/90 backdrop-blur-xl border-b border-[#e4e2de]">
+      {/* Filter bar — sticky below fixed header (announcement 40px + nav 72px = 112px) */}
+      <div className="sticky top-[112px] z-30 bg-white/90 backdrop-blur-xl border-b border-[#e4e2de]">
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex items-center gap-2 py-3 overflow-x-auto scrollbar-none">
             {categories.map(cat => (
