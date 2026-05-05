@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Clock, Tag } from "lucide-react";
-import { blogPosts, blogCategories } from "@/lib/blog";
+import { blogPosts } from "@/lib/blog";
+
+const blogCategories = ["All", ...Array.from(new Set(blogPosts.map(p => p.category))).sort()];
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
