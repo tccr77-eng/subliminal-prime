@@ -26,8 +26,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/product/elite-focus", label: "Elite Focus" },
-                { href: "/product/confidence", label: "Unshakeable Confidence" },
-                { href: "/product/wealth-mindset", label: "Wealth & Abundance" },
+                { href: "/product/unshakeable-confidence", label: "Unshakeable Confidence" },
+                { href: "/product/wealth-abundance", label: "Wealth & Abundance" },
                 { href: "/product/entrepreneurial-mindset", label: "Entrepreneurial Mindset" },
                 { href: "/bundles", label: "Bundle Deals" },
               ].map(link => (
@@ -69,6 +69,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#e5e7eb" }}>Support</h4>
             <ul className="space-y-3">
               {[
+                { href: "/contact", label: "Contact Us" },
                 { href: "/faq", label: "Help Centre" },
                 { href: "/refund-policy", label: "Refund Policy" },
                 { href: "/privacy-policy", label: "Privacy Policy" },

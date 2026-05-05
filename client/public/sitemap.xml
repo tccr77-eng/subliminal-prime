@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://subliminalprime.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://subliminalprime.com/shop</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://subliminalprime.com/bundles</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://subliminalprime.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/the-science</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/how-to-use</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://subliminalprime.com/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://subliminalprime.com/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Product pages -->
+  <url><loc>https://subliminalprime.com/product/elite-focus</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/unshakeable-confidence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/wealth-abundance</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/entrepreneurial-mindset</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/peak-athletic-performance</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/accelerated-learning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/master-public-speaking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/deep-sleep</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/social-charisma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/product/stress-resilience</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Blog articles -->
+  <url><loc>https://subliminalprime.com/blog/does-subliminal-audio-work</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/how-to-rewire-your-subconscious-mind</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-vs-meditation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/best-time-to-listen-subliminal-audio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-for-confidence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-for-sleep</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-for-athletes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/science-of-subliminal-messages</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/best-subliminal-programs-2026</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://subliminalprime.com/blog/personal-development-trends-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/how-to-build-confidence-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subconscious-mind-reprogramming-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-entrepreneurship</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/wealth-mindset-reprogramming</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-focus-productivity</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/morning-routine-subliminal-audio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-anxiety-stress</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://subliminalprime.com/blog/subliminal-audio-public-speaking</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Legal pages -->
+  <url><loc>https://subliminalprime.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://subliminalprime.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://subliminalprime.com/refund-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+</urlset>

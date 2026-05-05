@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow checkout and cart from indexing
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-confirmation
+
+Sitemap: https://subliminalprime.com/sitemap.xml

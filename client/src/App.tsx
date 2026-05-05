@@ -27,7 +27,9 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import CookieConsent from "./components/CookieConsent";
 
 const ANNOUNCEMENT_H = 40;
 const NAV_H = 72; // max nav height (desktop)
@@ -76,10 +78,12 @@ function Router() {
           <Route path="/refund-policy" component={RefundPolicy} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogArticle} />
+          <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 }

@@ -18,7 +18,7 @@ const testimonials = [
     text: "I was sceptical at first. Three weeks in, I noticed I was staying focused for hours without even trying. My team has noticed the difference too.",
     rating: 5,
     program: "Elite Focus",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
+    image: "/manus-storage/avatar-sarah_3d9e8423.jpg",
   },
   {
     name: "James T.",
@@ -26,7 +26,7 @@ const testimonials = [
     text: "The Confidence program changed how I show up in meetings. I stopped second-guessing myself and started closing deals I would have talked myself out of before.",
     rating: 5,
     program: "Unshakeable Confidence",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+    image: "/manus-storage/avatar-james_744bf98b.jpg",
   },
   {
     name: "Priya K.",
@@ -34,7 +34,7 @@ const testimonials = [
     text: "Accelerated Learning during my revision sessions genuinely changed how I retain information. My exam scores went up 18% this semester.",
     rating: 5,
     program: "Accelerated Learning",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
+    image: "/manus-storage/avatar-priya_853eaaf8.jpg",
   },
   {
     name: "Marcus R.",
@@ -42,7 +42,7 @@ const testimonials = [
     text: "I've worked with sports psychologists. This is the most accessible, consistent mental training tool I've found. I use it every night before competition.",
     rating: 5,
     program: "Peak Athletic Performance",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+    image: "/manus-storage/avatar-marcus_82a22f79.jpg",
   },
 ];
 
@@ -113,10 +113,10 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=36&h=36&fit=crop&crop=face",
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=36&h=36&fit=crop&crop=face",
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=36&h=36&fit=crop&crop=face",
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=36&h=36&fit=crop&crop=face",
+                  "/manus-storage/avatar-sarah_3d9e8423.jpg",
+                  "/manus-storage/avatar-james_744bf98b.jpg",
+                  "/manus-storage/avatar-priya_853eaaf8.jpg",
+                  "/manus-storage/avatar-marcus_82a22f79.jpg",
                 ].map((src, i) => (
                   <img key={i} src={src} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
                 ))}
