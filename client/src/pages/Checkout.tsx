@@ -8,7 +8,7 @@ export default function Checkout() {
   const { items, subtotal, clearCart } = useCart();
   const [, navigate] = useLocation();
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ email: "", firstName: "", lastName: "", card: "", expiry: "", cvc: "" });
+  const [form, setForm] = useState({ email: "", firstName: "", lastName: "", address: "", city: "", postcode: "", country: "GB", card: "", expiry: "", cvc: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -16,6 +16,9 @@ export default function Checkout() {
     if (!form.email.includes("@")) e.email = "Please enter a valid email address.";
     if (!form.firstName.trim()) e.firstName = "First name is required.";
     if (!form.lastName.trim()) e.lastName = "Last name is required.";
+    if (!form.address.trim()) e.address = "Address is required.";
+    if (!form.city.trim()) e.city = "City is required.";
+    if (!form.postcode.trim()) e.postcode = "Postcode is required.";
     if (form.card.replace(/\s/g, "").length < 16) e.card = "Please enter a valid card number.";
     if (!form.expiry.match(/^\d{2}\/\d{2}$/)) e.expiry = "Format: MM/YY";
     if (form.cvc.length < 3) e.cvc = "Invalid CVC.";
@@ -80,6 +83,34 @@ export default function Checkout() {
                     <label className="block text-xs font-semibold text-[#374151] mb-1.5">Last Name</label>
                     <input className={`input-field ${errors.lastName ? "border-red-400" : ""}`} value={form.lastName} onChange={e => handleChange("lastName", e.target.value)} placeholder="Johnson" />
                     {errors.lastName && <p className="text-xs text-red-500 mt-1">{errors.lastName}</p>}
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5">Address</label>
+                    <input className={`input-field ${errors.address ? "border-red-400" : ""}`} value={form.address} onChange={e => handleChange("address", e.target.value)} placeholder="123 High Street" />
+                    {errors.address && <p className="text-xs text-red-500 mt-1">{errors.address}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5">City</label>
+                    <input className={`input-field ${errors.city ? "border-red-400" : ""}`} value={form.city} onChange={e => handleChange("city", e.target.value)} placeholder="London" />
+                    {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5">Postcode</label>
+                    <input className={`input-field ${errors.postcode ? "border-red-400" : ""}`} value={form.postcode} onChange={e => handleChange("postcode", e.target.value.toUpperCase())} placeholder="SW1A 1AA" />
+                    {errors.postcode && <p className="text-xs text-red-500 mt-1">{errors.postcode}</p>}
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5">Country</label>
+                    <select className="input-field" value={form.country} onChange={e => handleChange("country", e.target.value)}>
+                      <option value="GB">United Kingdom</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="AU">Australia</option>
+                      <option value="IE">Ireland</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="OTHER">Other</option>
+                    </select>
                   </div>
                   <div className="sm:col-span-2">
                     <label className="block text-xs font-semibold text-[#374151] mb-1.5">Email Address</label>

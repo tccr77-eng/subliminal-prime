@@ -1,6 +1,6 @@
 // Cart Page — "Clarity" Design System
 import { Link } from "wouter";
-import { Trash2, ArrowRight, ShoppingBag, Shield, Download } from "lucide-react";
+import { Trash2, ArrowRight, ShoppingBag, Shield, Download, Minus, Plus } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 
 export default function Cart() {
@@ -45,6 +45,23 @@ export default function Cart() {
                   <p className="text-xs text-[#9ca3af] mt-0.5">{item.type === "bundle" ? "Bundle" : "2 audio formats · Lifetime access"}</p>
                 </div>
                 <div className="flex items-center gap-4 shrink-0">
+                  {/* Quantity controls */}
+                  <div className="flex items-center gap-2 border border-[#e4e2de] rounded-full px-1 py-1">
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      disabled={item.quantity <= 1}
+                      className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[#f2f0ec] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      <Minus size={13} className="text-[#374151]" />
+                    </button>
+                    <span className="text-sm font-semibold text-[#1a1f2e] w-4 text-center">{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[#f2f0ec] transition-colors"
+                    >
+                      <Plus size={13} className="text-[#374151]" />
+                    </button>
+                  </div>
                   <span className="text-lg font-700 text-[#1a1f2e]" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
                     £{(item.price * item.quantity).toFixed(2)}
                   </span>
@@ -80,6 +97,11 @@ export default function Cart() {
               <Link href="/checkout">
                 <button className="btn-primary w-full justify-center text-base py-4">
                   Proceed to Checkout <ArrowRight size={16} />
+                </button>
+              </Link>
+              <Link href="/shop">
+                <button className="w-full mt-3 text-sm text-center text-[#6b7280] hover:text-[#1a1f2e] transition-colors py-2">
+                  ← Continue Shopping
                 </button>
               </Link>
               <div className="mt-5 flex flex-col gap-2">

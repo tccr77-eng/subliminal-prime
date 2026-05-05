@@ -90,7 +90,7 @@ export const products: Product[] = [
   },
   {
     id: "unshakeable-confidence",
-    slug: "confidence",
+    slug: "unshakeable-confidence",
     name: "Unshakeable Confidence",
     tagline: "Walk into every room like you own it.",
     description: "Dissolve self-doubt at its root. This program targets the subconscious beliefs that hold you back and replaces them with an unshakeable sense of self-worth and capability.",
@@ -116,7 +116,7 @@ export const products: Product[] = [
   },
   {
     id: "wealth-abundance",
-    slug: "wealth-mindset",
+    slug: "wealth-abundance",
     name: "Wealth & Abundance",
     tagline: "Rewire your relationship with money.",
     description: "Most financial limitations are mental, not circumstantial. This program targets the deep-seated beliefs about money, scarcity, and worthiness that silently sabotage your earning potential.",
