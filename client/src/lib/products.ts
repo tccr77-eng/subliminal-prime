@@ -48,9 +48,9 @@ const PORTRAIT_MAN = "/manus-storage/product-card-man_7d9d953f.jpg";
 const ABOUT_IMAGE = "/manus-storage/about-lifestyle_d68ff095.jpg";
 
 // Unique card images — Unsplash lifestyle photography
-const IMG_FOCUS = "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=600&h=800&fit=crop&crop=center"; // person focused at desk
+const IMG_FOCUS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-elite-focus-DrUH9JMMnWUaBLYVECw53b.webp"; // calm focused man at laptop
 const IMG_CONFIDENCE = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face"; // confident woman
-const IMG_WEALTH = "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=800&fit=crop&crop=center"; // abundance lifestyle
+const IMG_WEALTH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-wealth-abundance-3EosD4ucx8jenNwsfZnQEo.webp"; // luxury villa terrace wealth lifestyle
 const IMG_ENTREPRENEUR = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=800&fit=crop&crop=center"; // entrepreneur working
 const IMG_ATHLETE = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=800&fit=crop&crop=center"; // athlete training
 const IMG_LEARNING = "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=800&fit=crop&crop=center"; // studying / learning
