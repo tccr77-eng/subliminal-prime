@@ -18,7 +18,7 @@ const testimonials = [
     text: "I was sceptical at first. Three weeks in, I noticed I was staying focused for hours without even trying. My team has noticed the difference too.",
     rating: 5,
     program: "Elite Focus",
-    image: "/manus-storage/avatar-sarah_3d9e8423.jpg",
+    image: "https://subliminalprime.b-cdn.net/avatar-sarah.jpg",
   },
   {
     name: "James T.",
@@ -26,7 +26,7 @@ const testimonials = [
     text: "The Confidence program changed how I show up in meetings. I stopped second-guessing myself and started closing deals I would have talked myself out of before.",
     rating: 5,
     program: "Unshakeable Confidence",
-    image: "/manus-storage/avatar-james_744bf98b.jpg",
+    image: "https://subliminalprime.b-cdn.net/avatar-james.jpg",
   },
   {
     name: "Priya K.",
@@ -34,7 +34,7 @@ const testimonials = [
     text: "Accelerated Learning during my revision sessions genuinely changed how I retain information. My exam scores went up 18% this semester.",
     rating: 5,
     program: "Accelerated Learning",
-    image: "/manus-storage/avatar-priya_853eaaf8.jpg",
+    image: "https://subliminalprime.b-cdn.net/avatar-priya.jpg",
   },
   {
     name: "Marcus R.",
@@ -42,7 +42,7 @@ const testimonials = [
     text: "I've worked with sports psychologists. This is the most accessible, consistent mental training tool I've found. I use it every night before competition.",
     rating: 5,
     program: "Peak Athletic Performance",
-    image: "/manus-storage/avatar-marcus_82a22f79.jpg",
+    image: "https://subliminalprime.b-cdn.net/avatar-marcus.jpg",
   },
 ];
 
@@ -113,10 +113,10 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[
-                  "/manus-storage/avatar-sarah_3d9e8423.jpg",
-                  "/manus-storage/avatar-james_744bf98b.jpg",
-                  "/manus-storage/avatar-priya_853eaaf8.jpg",
-                  "/manus-storage/avatar-marcus_82a22f79.jpg",
+                  "https://subliminalprime.b-cdn.net/avatar-sarah.jpg",
+                  "https://subliminalprime.b-cdn.net/avatar-james.jpg",
+                  "https://subliminalprime.b-cdn.net/avatar-priya.jpg",
+                  "https://subliminalprime.b-cdn.net/avatar-marcus.jpg",
                 ].map((src, i) => (
                   <img key={i} src={src} alt="" className="w-9 h-9 rounded-full border-2 border-white object-cover" />
                 ))}

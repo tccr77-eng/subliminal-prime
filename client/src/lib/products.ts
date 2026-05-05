@@ -41,22 +41,22 @@ export interface Bundle {
   featured: boolean;
 }
 
-const HERO_WOMAN = "/manus-storage/hero-lifestyle_f4e60e79.jpg";
-const HERO_MAN = "/manus-storage/hero-lifestyle-2_a9160e46.jpg";
-const PORTRAIT_WOMAN = "/manus-storage/product-card-woman_b71fd8a1.jpg";
-const PORTRAIT_MAN = "/manus-storage/product-card-man_7d9d953f.jpg";
-const ABOUT_IMAGE = "/manus-storage/about-lifestyle_d68ff095.jpg";
+const HERO_WOMAN = "https://subliminalprime.b-cdn.net/hero-lifestyle.jpg";
+const HERO_MAN = "https://subliminalprime.b-cdn.net/hero-lifestyle-2.jpg";
+const PORTRAIT_WOMAN = "https://subliminalprime.b-cdn.net/product-card-woman.jpg";
+const PORTRAIT_MAN = "https://subliminalprime.b-cdn.net/product-card-man.jpg";
+const ABOUT_IMAGE = "https://subliminalprime.b-cdn.net/about-lifestyle.jpg";
 
 // Unique card images — Unsplash lifestyle photography
-const IMG_FOCUS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-elite-focus-DrUH9JMMnWUaBLYVECw53b.webp"; // calm focused man at laptop
+const IMG_FOCUS = "https://subliminalprime.b-cdn.net/product-elite-focus.webp"; // calm focused man at laptop
 const IMG_CONFIDENCE = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face"; // confident woman
-const IMG_WEALTH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-wealth-abundance-3EosD4ucx8jenNwsfZnQEo.webp"; // luxury villa terrace wealth lifestyle
+const IMG_WEALTH = "https://subliminalprime.b-cdn.net/product-wealth-abundance.webp"; // luxury villa terrace wealth lifestyle
 const IMG_ENTREPRENEUR = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=800&fit=crop&crop=center"; // entrepreneur working
 const IMG_ATHLETE = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=800&fit=crop&crop=center"; // athlete training
 const IMG_LEARNING = "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=800&fit=crop&crop=center"; // studying / learning
 const IMG_SPEAKING = "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=800&fit=crop&crop=center"; // public speaking
 const IMG_SLEEP = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&h=800&fit=crop&crop=center"; // peaceful sleep
-const IMG_SOCIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-social-charisma-noGKvJDiKv4mTBibZaZj6d.webp"; // magnetic charisma rooftop group
+const IMG_SOCIAL = "https://subliminalprime.b-cdn.net/product-social-charisma.webp"; // magnetic charisma rooftop group
 const IMG_STRESS = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=800&fit=crop&crop=center"; // calm meditation
 
 export { HERO_WOMAN, HERO_MAN, PORTRAIT_WOMAN, PORTRAIT_MAN, ABOUT_IMAGE };
