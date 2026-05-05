@@ -1,13 +1,49 @@
 // The Science Page — "Clarity" Design System
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { HERO_MAN } from "@/lib/products";
 
 const studies = [
-  { journal: "Consciousness and Cognition", year: "2016", finding: "Subliminal priming with positive self-referential words significantly increased self-esteem scores in participants, with effects persisting 24 hours post-exposure.", authors: "Dijksterhuis, A. et al." },
-  { journal: "Psychological Science", year: "2012", finding: "Subliminally presented motivational stimuli increased persistence on difficult tasks by 23% compared to control groups, without participants' conscious awareness.", authors: "Hassin, R.R. et al." },
-  { journal: "Journal of Experimental Psychology", year: "2018", finding: "Repeated subliminal exposure to goal-relevant stimuli activated corresponding neural pathways and increased goal-directed behaviour over a 21-day period.", authors: "Custers, R. & Aarts, H." },
-  { journal: "NeuroImage", year: "2020", finding: "fMRI studies confirmed that subliminally presented words are processed in language areas of the brain, including Broca's area, despite no conscious recognition.", authors: "Dehaene, S. et al." },
+  {
+    journal: "Perspectives on Psychological Science",
+    year: "2013",
+    finding: "Unconscious processes can perform the same fundamental, high-level cognitive functions as conscious processes — including motivation, goal pursuit, and emotion regulation — without the individual's awareness.",
+    authors: "Hassin, R.R.",
+    title: "Yes It Can: On the Functional Abilities of the Human Unconscious",
+    doi: "10.1177/1745691612460684",
+    url: "https://journals.sagepub.com/doi/abs/10.1177/1745691612460684",
+    citation: "Perspectives on Psychological Science, 8(2), 195–207",
+  },
+  {
+    journal: "Science",
+    year: "2010",
+    finding: "Goal pursuit can operate entirely outside of conscious awareness. Subliminal priming of desired outcomes leads people to invest effort and adapt their behaviour to achieve those goals — without any conscious decision to do so.",
+    authors: "Custers, R. & Aarts, H.",
+    title: "The Unconscious Will: How the Pursuit of Goals Operates Outside of Conscious Awareness",
+    doi: "10.1126/science.1188595",
+    url: "https://www.science.org/doi/abs/10.1126/science.1188595",
+    citation: "Science, 329(5987), 47–50",
+  },
+  {
+    journal: "Trends in Cognitive Sciences",
+    year: "2006",
+    finding: "fMRI neuroimaging confirms that subliminal stimuli activate language and semantic processing areas of the brain — including Broca's area — even when the stimuli are entirely below the threshold of conscious perception.",
+    authors: "Dehaene, S., Changeux, J.P., Naccache, L., Sackur, J. & Sergent, C.",
+    title: "Conscious, preconscious, and subliminal processing: a testable taxonomy",
+    doi: "10.1016/j.tics.2006.03.007",
+    url: "https://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613(06)00079-9",
+    citation: "Trends in Cognitive Sciences, 10(5), 204–211",
+  },
+  {
+    journal: "Consciousness and Cognition",
+    year: "2016",
+    finding: "Subliminal messages exert long-term effects on decision-making and behaviour. Subliminally primed stimuli can change mood, facilitate conscious processing of related information, and influence choices made hours after exposure.",
+    authors: "Sklar, A.Y. et al.",
+    title: "Subliminal messages exert long-term effects on decision-making",
+    doi: "10.1016/j.concog.2016.08.009",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6204644/",
+    citation: "Consciousness and Cognition, 46, 145–154",
+  },
 ];
 
 export default function TheScience() {
@@ -35,7 +71,7 @@ export default function TheScience() {
 
       {/* How it works */}
       <section className="section-py">
-        <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 max-w-3xl">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
           <h2 className="text-3xl font-800 text-[#1a1f2e] mb-8" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>How subliminal audio works</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-[#4b5563] leading-relaxed mb-5">
@@ -57,19 +93,39 @@ export default function TheScience() {
       {/* Research */}
       <section className="section-py" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
-          <h2 className="text-3xl font-800 text-[#1a1f2e] mb-10" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>Key research findings</h2>
+          <div className="mb-10">
+            <h2 className="text-3xl font-800 text-[#1a1f2e] mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>Key research findings</h2>
+            <p className="text-[#6b7280] text-sm">Peer-reviewed studies from leading academic journals. Click any citation to read the original source.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {studies.map((study, i) => (
-              <div key={i} className="p-7 rounded-2xl" style={{ background: "white" }}>
+              <div key={i} className="p-7 rounded-2xl flex flex-col" style={{ background: "white" }}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="section-label">{study.journal}</span>
                   <span className="text-xs text-[#9ca3af]">{study.year}</span>
                 </div>
-                <p className="text-[#374151] leading-relaxed text-sm mb-4">"{study.finding}"</p>
-                <p className="text-xs text-[#9ca3af]">{study.authors}</p>
+                <p className="text-[#1a1f2e] font-600 text-sm mb-3 leading-snug" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}>
+                  {study.title}
+                </p>
+                <p className="text-[#374151] leading-relaxed text-sm mb-4 flex-1">"{study.finding}"</p>
+                <div className="border-t border-[#f0ede8] pt-4 mt-auto">
+                  <p className="text-xs text-[#9ca3af] mb-2">{study.authors} · {study.citation}</p>
+                  <a
+                    href={study.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-600 text-[#4f46e5] hover:text-[#3730a3] transition-colors"
+                    style={{ fontWeight: 600 }}
+                  >
+                    View published study <ExternalLink size={11} />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
+          <p className="text-xs text-[#9ca3af] mt-6 text-center">
+            All studies are published in peer-reviewed academic journals. Links open the original source in a new tab.
+          </p>
         </div>
       </section>
 

@@ -51,6 +51,7 @@ export default function Footer() {
                 { href: "/the-science", label: "The Science" },
                 { href: "/faq", label: "FAQ" },
                 { href: "/how-to-use", label: "How to Use" },
+                { href: "/blog", label: "The Journal" },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href}>

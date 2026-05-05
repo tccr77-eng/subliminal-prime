@@ -25,6 +25,8 @@ import HowToUse from "./pages/HowToUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 import NotFound from "./pages/NotFound";
 
 const ANNOUNCEMENT_H = 40;
@@ -72,6 +74,8 @@ function Router() {
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms" component={Terms} />
           <Route path="/refund-policy" component={RefundPolicy} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/blog/:slug" component={BlogArticle} />
           <Route component={NotFound} />
         </Switch>
       </main>

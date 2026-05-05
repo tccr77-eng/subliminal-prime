@@ -35,6 +35,7 @@ export default function Navigation() {
     { href: "/bundles", label: "Bundles" },
     { href: "/the-science", label: "The Science" },
     { href: "/about", label: "About" },
+    { href: "/blog", label: "Journal" },
   ];
 
   return (
