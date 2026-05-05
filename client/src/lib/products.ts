@@ -56,7 +56,7 @@ const IMG_ATHLETE = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50
 const IMG_LEARNING = "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=800&fit=crop&crop=center"; // studying / learning
 const IMG_SPEAKING = "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=800&fit=crop&crop=center"; // public speaking
 const IMG_SLEEP = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&h=800&fit=crop&crop=center"; // peaceful sleep
-const IMG_SOCIAL = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=800&fit=crop&crop=center"; // social connection
+const IMG_SOCIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663404073389/9qdZGvMKnGBVoxxZymzV8p/product-social-charisma-noGKvJDiKv4mTBibZaZj6d.webp"; // magnetic charisma rooftop group
 const IMG_STRESS = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=800&fit=crop&crop=center"; // calm meditation
 
 export { HERO_WOMAN, HERO_MAN, PORTRAIT_WOMAN, PORTRAIT_MAN, ABOUT_IMAGE };
