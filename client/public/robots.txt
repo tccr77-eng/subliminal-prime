@@ -1,9 +1,4 @@
+# ⚠️  PRE-LAUNCH: blocking all indexing until we go live.
+# When ready to launch publicly, revert this file to allow crawlers.
 User-agent: *
-Allow: /
-
-# Disallow checkout and cart from indexing
-Disallow: /cart
-Disallow: /checkout
-Disallow: /order-confirmation
-
-Sitemap: https://subliminalprime.com/sitemap.xml
+Disallow: /
