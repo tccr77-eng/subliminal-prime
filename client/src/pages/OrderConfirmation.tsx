@@ -12,18 +12,17 @@ interface OrderItem {
   downloadUrl: string;
 }
 
-// Simulated download links — in production these would come from the backend after payment verification
+// Download URLs for the 6 core programs.
+// ⚠️  Before launch: replace each REPLACE-WITH-* URL with the real Bunny CDN URL
+// for that product's MP3. Keep filenames unguessable so paying customers can't share short URLs.
+// The webhook (api/stripe-webhook.ts) holds the source-of-truth copy of this same data — keep both in sync.
 const DOWNLOAD_LINKS: Record<string, string> = {
-  "elite-focus": "https://subliminalprime.com/downloads/elite-focus.mp3",
-  "unshakeable-confidence": "https://subliminalprime.com/downloads/unshakeable-confidence.mp3",
-  "wealth-abundance": "https://subliminalprime.com/downloads/wealth-abundance.mp3",
-  "entrepreneurial-mindset": "https://subliminalprime.com/downloads/entrepreneurial-mindset.mp3",
-  "peak-athletic-performance": "https://subliminalprime.com/downloads/peak-athletic-performance.mp3",
-  "accelerated-learning": "https://subliminalprime.com/downloads/accelerated-learning.mp3",
-  "master-public-speaking": "https://subliminalprime.com/downloads/master-public-speaking.mp3",
-  "deep-sleep": "https://subliminalprime.com/downloads/deep-sleep.mp3",
-  "social-charisma": "https://subliminalprime.com/downloads/social-charisma.mp3",
-  "stress-resilience": "https://subliminalprime.com/downloads/stress-resilience.mp3",
+  "deep-sleep": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-deep-sleep.mp3",
+  "calm-clarity": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-calm-clarity.mp3",
+  "wealth-magnet": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-wealth-magnet.mp3",
+  "unstoppable-confidence": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-unstoppable-confidence.mp3",
+  "mindful-body": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-mindful-body.mp3",
+  "magnetic-love": "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-magnetic-love.mp3",
 };
 
 export default function OrderConfirmation() {
@@ -94,12 +93,10 @@ export default function OrderConfirmation() {
                     </div>
                     <a
                       href={item.downloadUrl}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all shrink-0"
-                      onClick={(e) => {
-                        // In demo mode, prevent actual navigation and show a toast-style message
-                        e.preventDefault();
-                        alert(`In the live version, this would download: ${item.name}.mp3\n\nPayment processing (Stripe) must be enabled for real downloads.`);
-                      }}
                     >
                       <Download className="w-4 h-4" />
                       Download

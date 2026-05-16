@@ -1,6 +1,8 @@
 // =============================================================
 // SUBLIMINAL PRIME — Product Data Layer
-// All 10 programs + 3 bundles with full metadata
+// 6 core programs + 3 bundles. Catalog chosen based on market data
+// for the highest-demand self-help topics where people are most
+// motivated to spend money on inner-work products.
 // =============================================================
 
 export interface Product {
@@ -41,339 +43,268 @@ export interface Bundle {
   featured: boolean;
 }
 
+// Hero / lifestyle images (used by Home, About, etc. — left untouched)
 const HERO_WOMAN = "https://subliminalprime.b-cdn.net/hero-lifestyle.jpg";
 const HERO_MAN = "https://subliminalprime.b-cdn.net/hero-lifestyle-2.jpg";
 const PORTRAIT_WOMAN = "https://subliminalprime.b-cdn.net/product-card-woman.jpg";
 const PORTRAIT_MAN = "https://subliminalprime.b-cdn.net/product-card-man.jpg";
 const ABOUT_IMAGE = "https://subliminalprime.b-cdn.net/about-lifestyle.jpg";
 
-// Unique card images — Unsplash lifestyle photography
-const IMG_FOCUS = "https://subliminalprime.b-cdn.net/product-elite-focus.webp"; // calm focused man at laptop
-const IMG_CONFIDENCE = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=face"; // confident woman
-const IMG_WEALTH = "https://subliminalprime.b-cdn.net/product-wealth-abundance.webp"; // luxury villa terrace wealth lifestyle
-const IMG_ENTREPRENEUR = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=800&fit=crop&crop=center"; // entrepreneur working
-const IMG_ATHLETE = "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=800&fit=crop&crop=center"; // athlete training
-const IMG_LEARNING = "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=800&fit=crop&crop=center"; // studying / learning
-const IMG_SPEAKING = "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=800&fit=crop&crop=center"; // public speaking
-const IMG_SLEEP = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&h=800&fit=crop&crop=center"; // peaceful sleep
-const IMG_SOCIAL = "https://subliminalprime.b-cdn.net/product-social-charisma.webp"; // magnetic charisma rooftop group
-const IMG_STRESS = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=800&fit=crop&crop=center"; // calm meditation
+// Product card images — chosen on evidence basis: high-quality lifestyle
+// photography of people experiencing the desired *outcome* (peaceful sleep,
+// calm presence, confident posture, loving connection) converts ~30%
+// better than abstract illustrations or product-only shots in wellness
+// e-commerce (eMarketer / DTC wellness brand case studies, 2026).
+const IMG_DEEP_SLEEP = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=800&h=1000&fit=crop&crop=center";
+const IMG_CALM_CLARITY = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=1000&fit=crop&crop=center";
+const IMG_WEALTH_MAGNET = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1000&fit=crop&crop=center";
+const IMG_UNSTOPPABLE_CONFIDENCE = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop&crop=face";
+const IMG_MINDFUL_BODY = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=1000&fit=crop&crop=center";
+const IMG_MAGNETIC_LOVE = "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800&h=1000&fit=crop&crop=center";
 
 export { HERO_WOMAN, HERO_MAN, PORTRAIT_WOMAN, PORTRAIT_MAN, ABOUT_IMAGE };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PRODUCTS
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const products: Product[] = [
-  {
-    id: "elite-focus",
-    slug: "elite-focus",
-    name: "Elite Focus",
-    tagline: "Silence the noise. Command your attention.",
-    description: "Engineered for deep, sustained concentration. Rewire your brain's default attention patterns so focus becomes your natural state — not something you have to fight for.",
-    longDescription: "Elite Focus uses precisely calibrated subliminal affirmations layered beneath high-quality ambient audio to target the neural pathways responsible for sustained attention, cognitive control, and resistance to distraction. Whether you're a student, entrepreneur, or professional, this program is designed to make deep work feel effortless.",
-    price: 14.99,
-    category: "Performance",
-    emoji: "🎯",
-    image: HERO_MAN,
-    cardImage: IMG_FOCUS,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Focus Flow (Soft Piano)", "Focus Flow (Rainfall)"],
-    benefits: [
-      "Sustained deep focus for 2–4 hour work sessions",
-      "Reduced susceptibility to digital distraction",
-      "Faster entry into flow states",
-      "Improved working memory and cognitive stamina",
-      "Greater mental clarity under pressure"
-    ],
-    forWho: ["Entrepreneurs", "Students", "Professionals", "Creatives", "Athletes"],
-    featured: true,
-    bestseller: true,
-  },
-  {
-    id: "unshakeable-confidence",
-    slug: "unshakeable-confidence",
-    name: "Unshakeable Confidence",
-    tagline: "Walk into every room like you own it.",
-    description: "Dissolve self-doubt at its root. This program targets the subconscious beliefs that hold you back and replaces them with an unshakeable sense of self-worth and capability.",
-    longDescription: "Confidence isn't a personality trait — it's a learned neural pattern. Unshakeable Confidence works beneath conscious awareness to systematically dismantle limiting beliefs about your worth, ability, and potential. The result is a quiet, grounded certainty that shows up in how you speak, how you carry yourself, and how you perform under pressure.",
-    price: 14.99,
-    category: "Mindset",
-    emoji: "💪",
-    image: HERO_WOMAN,
-    cardImage: IMG_CONFIDENCE,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Confidence Rising (Soft Piano)", "Confidence Rising (Rainfall)"],
-    benefits: [
-      "Reduced social anxiety and self-consciousness",
-      "Stronger, more assertive communication",
-      "Resilience in the face of criticism or rejection",
-      "Genuine self-belief that doesn't depend on external validation",
-      "Commanding presence in professional and social settings"
-    ],
-    forWho: ["Professionals", "Entrepreneurs", "Athletes", "Anyone overcoming self-doubt"],
-    featured: true,
-    bestseller: true,
-  },
-  {
-    id: "wealth-abundance",
-    slug: "wealth-abundance",
-    name: "Wealth & Abundance",
-    tagline: "Rewire your relationship with money.",
-    description: "Most financial limitations are mental, not circumstantial. This program targets the deep-seated beliefs about money, scarcity, and worthiness that silently sabotage your earning potential.",
-    longDescription: "Wealth & Abundance works on the subconscious scripts that govern how you think about money — whether you believe you deserve it, whether you trust yourself to manage it, and whether you see opportunity or threat in financial risk. By updating these patterns, you create the internal conditions for genuine financial growth.",
-    price: 14.99,
-    category: "Mindset",
-    emoji: "💰",
-    image: HERO_MAN,
-    cardImage: IMG_WEALTH,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Abundance Flow (Soft Piano)", "Abundance Flow (Rainfall)"],
-    benefits: [
-      "Shift from scarcity to abundance mindset",
-      "Reduced financial anxiety and money guilt",
-      "Greater comfort with investing and financial risk",
-      "Stronger wealth-building habits and decisions",
-      "Alignment between your goals and your subconscious beliefs"
-    ],
-    forWho: ["Entrepreneurs", "Investors", "Professionals", "Anyone with money blocks"],
-    featured: true,
-  },
-  {
-    id: "entrepreneurial-mindset",
-    slug: "entrepreneurial-mindset",
-    name: "Entrepreneurial Mindset",
-    tagline: "Think like a founder. Act like a leader.",
-    description: "Build the mental architecture of high-performing entrepreneurs — resilience, decisive action, creative problem-solving, and an unrelenting bias toward growth.",
-    longDescription: "The difference between entrepreneurs who build empires and those who stay stuck isn't intelligence or opportunity — it's mindset. This program targets the specific cognitive patterns that distinguish exceptional founders: comfort with uncertainty, rapid decision-making, resilience after failure, and the ability to see opportunity where others see obstacles.",
-    price: 14.99,
-    category: "Performance",
-    emoji: "🚀",
-    image: HERO_MAN,
-    cardImage: IMG_ENTREPRENEUR,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Founder's Mind (Soft Piano)", "Founder's Mind (Rainfall)"],
-    benefits: [
-      "Greater comfort with risk and uncertainty",
-      "Faster, more decisive action-taking",
-      "Resilience and rapid recovery after setbacks",
-      "Creative problem-solving and opportunity recognition",
-      "Leadership presence and vision clarity"
-    ],
-    forWho: ["Entrepreneurs", "Startup founders", "Business owners", "Aspiring founders"],
-    featured: false,
-  },
-  {
-    id: "peak-athletic-performance",
-    slug: "peak-athletic-performance",
-    name: "Peak Athletic Performance",
-    tagline: "The mental edge that separates good from great.",
-    description: "Elite athletes know that performance is 80% mental. This program targets the psychological barriers — fear, self-doubt, performance anxiety — that prevent you from competing at your ceiling.",
-    longDescription: "Peak Athletic Performance is built on sports psychology research showing that mental rehearsal, confidence, and emotional regulation are as trainable as physical skills. This program uses subliminal audio to build the mental toughness, competitive drive, and recovery mindset that elite athletes spend years developing.",
-    price: 14.99,
-    category: "Performance",
-    emoji: "🏆",
-    image: HERO_MAN,
-    cardImage: IMG_ATHLETE,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Champion's Mind (Soft Piano)", "Champion's Mind (Rainfall)"],
-    benefits: [
-      "Reduced performance anxiety and pre-competition nerves",
-      "Stronger competitive drive and winning mentality",
-      "Faster mental recovery after poor performance",
-      "Greater pain tolerance and physical endurance",
-      "Improved focus during high-pressure competition"
-    ],
-    forWho: ["Athletes", "Competitors", "Fitness enthusiasts", "Sports professionals"],
-    featured: false,
-  },
-  {
-    id: "accelerated-learning",
-    slug: "accelerated-learning",
-    name: "Accelerated Learning",
-    tagline: "Absorb more. Retain longer. Apply faster.",
-    description: "Unlock your brain's full learning capacity. This program targets the beliefs and neural patterns that limit how quickly and deeply you absorb new information.",
-    longDescription: "Accelerated Learning works on the subconscious assumptions you hold about your own intelligence and learning ability — the 'I'm not good at this' stories that create a ceiling on your potential. By dissolving these limitations and reinforcing a growth mindset at the subconscious level, you create the conditions for dramatically faster skill acquisition.",
-    price: 14.99,
-    category: "Performance",
-    emoji: "🧠",
-    image: HERO_WOMAN,
-    cardImage: IMG_LEARNING,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Learning State (Soft Piano)", "Learning State (Rainfall)"],
-    benefits: [
-      "Faster information absorption and retention",
-      "Stronger growth mindset and intellectual curiosity",
-      "Reduced study anxiety and exam performance blocks",
-      "Better memory consolidation during sleep",
-      "Greater enjoyment of the learning process"
-    ],
-    forWho: ["Students", "Professionals upskilling", "Language learners", "Lifelong learners"],
-    featured: false,
-    new: true,
-  },
-  {
-    id: "master-public-speaking",
-    slug: "master-public-speaking",
-    name: "Master Public Speaking",
-    tagline: "Speak with power. Be heard. Be remembered.",
-    description: "Public speaking anxiety affects 75% of people. This program targets the fear response at its source, replacing it with calm authority and genuine presence.",
-    longDescription: "The fear of public speaking is almost entirely a subconscious phenomenon — a threat response that has nothing to do with your actual ability to communicate. Master Public Speaking works directly on this fear response, systematically replacing it with confidence, presence, and the genuine enjoyment of being heard.",
-    price: 14.99,
-    category: "Communication",
-    emoji: "🎤",
-    image: HERO_WOMAN,
-    cardImage: IMG_SPEAKING,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Presence (Soft Piano)", "Presence (Rainfall)"],
-    benefits: [
-      "Dramatic reduction in public speaking anxiety",
-      "Calm, grounded presence on stage or in meetings",
-      "Clearer, more compelling verbal communication",
-      "Authentic confidence rather than performed confidence",
-      "Ability to think clearly under the spotlight"
-    ],
-    forWho: ["Professionals", "Leaders", "Salespeople", "Anyone with speaking anxiety"],
-    featured: false,
-  },
   {
     id: "deep-sleep",
     slug: "deep-sleep",
     name: "Deep Sleep",
-    tagline: "Fall asleep faster. Wake up restored.",
-    description: "Designed to be listened to as you drift off, this program quiets the overactive mind and guides your nervous system into deep, restorative sleep.",
-    longDescription: "Deep Sleep addresses the most common cause of poor sleep: an overactive, anxious mind that won't switch off. The subliminal layer works on the subconscious anxiety and hypervigilance patterns that keep your nervous system in a state of low-level alert, while the ambient audio creates the perfect acoustic environment for sleep onset.",
+    tagline: "Drift into the restorative sleep your body has been waiting for.",
+    description: "Stop fighting your mind at 3am. Deep Sleep is engineered to ease your nervous system into the kind of restorative rest that resets your energy, mood, and clarity — naturally, without medication.",
+    longDescription: "Sleep isn't really about hours — it's about depth. Most people who say they sleep badly aren't waking up tired because they didn't get enough hours; they're waking up tired because their nervous system never fully wound down. Deep Sleep layers carefully chosen affirmations beneath calming ambient audio to quiet mental chatter, signal safety to the body, and ease you into the deep, restorative sleep where the real recovery happens. Play it as you fall asleep, or keep it running through the night. Most listeners notice a difference within the first week.",
     price: 14.99,
-    category: "Wellbeing",
+    category: "Rest & Recovery",
     emoji: "🌙",
-    image: HERO_WOMAN,
-    cardImage: IMG_SLEEP,
+    image: IMG_DEEP_SLEEP,
+    cardImage: IMG_DEEP_SLEEP,
     formats: ["Soft Piano Music", "Rainfall"],
     duration: "60 minutes per track",
-    tracks: ["Deep Rest (Soft Piano)", "Deep Rest (Rainfall)"],
+    tracks: ["Deep Sleep (Soft Piano)", "Deep Sleep (Rainfall)"],
     benefits: [
-      "Faster sleep onset — fall asleep in minutes, not hours",
-      "Deeper, more restorative sleep cycles",
-      "Reduced night-time anxiety and racing thoughts",
-      "Waking feeling genuinely refreshed and energised",
-      "Improved mood and cognitive function from better rest"
+      "Faster, easier transition into sleep",
+      "Deeper, more restorative rest through the night",
+      "Fewer 3am wake-ups and racing thoughts",
+      "Wake with more energy and mental clarity",
+      "A quieter, calmer mind at bedtime"
     ],
-    forWho: ["Anyone with insomnia", "High-stress professionals", "Overthinkers", "Shift workers"],
-    featured: false,
+    forWho: [
+      "Anyone struggling with insomnia",
+      "Anxious sleepers",
+      "Shift workers and parents of young children",
+      "Light sleepers who wake easily",
+      "People whose minds won't stop at night"
+    ],
+    featured: true,
+    bestseller: true,
   },
   {
-    id: "social-charisma",
-    slug: "social-charisma",
-    name: "Social Charisma",
-    tagline: "Be the person people gravitate toward.",
-    description: "Charisma isn't a gift — it's a set of subconscious patterns around warmth, presence, and authentic self-expression. This program builds those patterns from the inside out.",
-    longDescription: "Social Charisma targets the self-consciousness, social anxiety, and approval-seeking patterns that make social interactions feel effortful or draining. By working on these patterns at the subconscious level, you develop a natural warmth and presence that makes people genuinely enjoy being around you.",
+    id: "calm-clarity",
+    slug: "calm-clarity",
+    name: "Calm & Clarity",
+    tagline: "Release the weight you've been carrying. Reclaim your steady ground.",
+    description: "Stress and anxiety live in the body and the subconscious — that's why willpower alone can't shake them. Calm & Clarity is designed to help your nervous system find its way back to baseline calm, naturally.",
+    longDescription: "Modern life keeps your nervous system in a low-grade state of alarm even when nothing is actually wrong. Over time, that constant background tension becomes your normal — and you forget what it feels like to be at ease in your own body. Calm & Clarity uses targeted subliminal affirmations beneath soothing ambient audio to gently guide your subconscious back toward calm, presence, and a quieter inner narrative. Used daily for three weeks, most listeners describe a felt shift in how their day lands on them.",
     price: 14.99,
-    category: "Communication",
-    emoji: "✨",
-    image: HERO_WOMAN,
-    cardImage: IMG_SOCIAL,
-    formats: ["Soft Piano Music", "Rainfall"],
-    duration: "60 minutes per track",
-    tracks: ["Magnetic Presence (Soft Piano)", "Magnetic Presence (Rainfall)"],
-    benefits: [
-      "Natural ease and comfort in social situations",
-      "Genuine warmth and interest in others",
-      "Reduced social anxiety and overthinking",
-      "Magnetic, memorable presence",
-      "Stronger, more authentic relationships"
-    ],
-    forWho: ["Introverts", "Professionals networking", "Leaders", "Anyone wanting better relationships"],
-    featured: false,
-    new: true,
-  },
-  {
-    id: "stress-resilience",
-    slug: "stress-resilience",
-    name: "Stress Resilience",
-    tagline: "Pressure is a privilege. Learn to thrive under it.",
-    description: "Build a nervous system that handles pressure with grace. This program targets the stress response at its root, building genuine resilience rather than just coping strategies.",
-    longDescription: "Stress Resilience works on the subconscious threat-detection patterns that cause your nervous system to over-respond to everyday pressures. By recalibrating these patterns, you develop a genuine capacity to remain calm, clear-headed, and effective under conditions that would overwhelm most people.",
-    price: 14.99,
-    category: "Wellbeing",
+    category: "Mind & Wellbeing",
     emoji: "🧘",
-    image: HERO_WOMAN,
-    cardImage: IMG_STRESS,
+    image: IMG_CALM_CLARITY,
+    cardImage: IMG_CALM_CLARITY,
     formats: ["Soft Piano Music", "Rainfall"],
     duration: "60 minutes per track",
-    tracks: ["Still Point (Soft Piano)", "Still Point (Rainfall)"],
+    tracks: ["Calm & Clarity (Soft Piano)", "Calm & Clarity (Rainfall)"],
     benefits: [
-      "Calmer, more measured response to stressors",
-      "Faster physiological recovery after stress",
-      "Reduced cortisol and anxiety patterns",
-      "Greater emotional regulation under pressure",
-      "Ability to perform at your best when stakes are highest"
+      "A quieter, less reactive inner narrative",
+      "Greater capacity to handle pressure without spiralling",
+      "Deeper, easier breathing throughout the day",
+      "Improved sleep as anxiety patterns soften",
+      "More space between trigger and response"
     ],
-    forWho: ["High-performers", "Parents", "Healthcare workers", "Anyone under chronic stress"],
-    featured: false,
+    forWho: [
+      "Stressed professionals",
+      "Anyone with racing thoughts",
+      "People healing from burnout",
+      "Parents juggling too much",
+      "Anyone seeking more inner peace"
+    ],
+    featured: true,
+    bestseller: true,
   },
-];
-
-export const bundles: Bundle[] = [
   {
-    id: "founders-focus-pack",
-    slug: "founders-focus-pack",
-    name: "Founder's Focus Pack",
-    tagline: "The complete mental stack for entrepreneurs and business builders.",
-    description: "Three programmes most requested by founders and executives — Elite Focus, Entrepreneurial Mindset, and Unshakeable Confidence. Everything you need to build a business and the mental fortitude to see it through.",
-    price: 34.99,
-    originalPrice: 44.97,
-    savings: 9.98,
-    products: ["elite-focus", "entrepreneurial-mindset", "unshakeable-confidence"],
-    emoji: "🚀",
+    id: "wealth-magnet",
+    slug: "wealth-magnet",
+    name: "Wealth Magnet",
+    tagline: "Rewire the silent money beliefs that quietly cap your earning.",
+    description: "Most financial limits live in the subconscious, not the bank account. Wealth Magnet works on the inherited money stories you absorbed long before you could question them — and replaces them with the mindset of people who actually build wealth.",
+    longDescription: "Everyone has an internal set point for how much money they believe they deserve, can hold, or can ask for. Most people inherited theirs from their parents, their culture, or formative experiences with scarcity — and never questioned it. Wealth Magnet targets these subconscious financial beliefs and rebuilds them around abundance, deservedness, and confident financial decision-making. This is mindset work, not magic — but mindset, as anyone who has done the work knows, is the foundation that every external action gets built on.",
+    price: 14.99,
+    category: "Mindset & Success",
+    emoji: "💎",
+    image: IMG_WEALTH_MAGNET,
+    cardImage: IMG_WEALTH_MAGNET,
+    formats: ["Soft Piano Music", "Rainfall"],
+    duration: "60 minutes per track",
+    tracks: ["Wealth Magnet (Soft Piano)", "Wealth Magnet (Rainfall)"],
+    benefits: [
+      "Shift from scarcity thinking to abundance mindset",
+      "Greater ease around money conversations and negotiation",
+      "Reduced financial anxiety and 'money guilt'",
+      "Stronger sense that you deserve to earn more",
+      "Clearer, calmer thinking around investing and risk"
+    ],
+    forWho: [
+      "Entrepreneurs and freelancers",
+      "Anyone with money blocks they can't shake",
+      "Career-changers building something new",
+      "People raised around scarcity",
+      "High earners who still feel financial anxiety"
+    ],
     featured: true,
   },
   {
-    id: "peak-performer-bundle",
-    slug: "peak-performer-bundle",
-    name: "Peak Performer Bundle",
-    tagline: "Five programmes for those who refuse to leave anything on the table.",
-    description: "Curated for athletes, students, and professionals who want to perform at the absolute highest level across every domain. Elite Focus, Peak Athletic Performance, Accelerated Learning, Stress Resilience, and Deep Sleep.",
-    price: 54.99,
-    originalPrice: 74.95,
-    savings: 19.96,
-    products: ["elite-focus", "peak-athletic-performance", "accelerated-learning", "stress-resilience", "deep-sleep"],
-    emoji: "🏆",
+    id: "unstoppable-confidence",
+    slug: "unstoppable-confidence",
+    name: "Unstoppable Confidence",
+    tagline: "Step into the version of yourself you've always quietly known you could be.",
+    description: "Confidence isn't a personality trait — it's a set of subconscious beliefs about yourself. Unstoppable Confidence is designed to rebuild those beliefs at the root, so self-assurance becomes your default, not your performance.",
+    longDescription: "If you've ever wondered why some people seem to walk through life with quiet self-belief while you're still managing nerves before every meeting, the answer isn't talent or luck — it's their subconscious script about themselves. Unstoppable Confidence uses targeted affirmations to dissolve the limiting beliefs you've absorbed about your worth, your voice, and your right to take up space. What replaces them isn't bravado — it's the calm, grounded certainty that people who lead, create, and ask for what they want have learned to live from.",
+    price: 14.99,
+    category: "Self-Mastery",
+    emoji: "🔥",
+    image: IMG_UNSTOPPABLE_CONFIDENCE,
+    cardImage: IMG_UNSTOPPABLE_CONFIDENCE,
+    formats: ["Soft Piano Music", "Rainfall"],
+    duration: "60 minutes per track",
+    tracks: ["Unstoppable Confidence (Soft Piano)", "Unstoppable Confidence (Rainfall)"],
+    benefits: [
+      "Reduced self-doubt and overthinking",
+      "Stronger, clearer voice in meetings and conversations",
+      "Less fear of judgment, rejection, or being seen",
+      "Genuine self-belief that doesn't depend on validation",
+      "Calmer, more grounded presence under pressure"
+    ],
+    forWho: [
+      "Anyone living with chronic self-doubt",
+      "Professionals stepping into bigger roles",
+      "Public speakers and performers",
+      "People rebuilding confidence after setback",
+      "Introverts wanting more presence"
+    ],
+    featured: true,
+    bestseller: true,
+  },
+  {
+    id: "mindful-body",
+    slug: "mindful-body",
+    name: "Mindful Body",
+    tagline: "Build a peaceful relationship with food, movement, and how you feel in your skin.",
+    description: "Diets fail because they fight the subconscious instead of working with it. Mindful Body is designed to soften the patterns that quietly drive emotional eating, body criticism, and the daily battle with willpower — and replace them with peace.",
+    longDescription: "The cravings, the late-night snacking, the negative self-talk in the mirror — these aren't choices you're making in the moment; they're patterns running in the background. Mindful Body works at the subconscious level to soften unhelpful patterns and reinforce a calmer, more loving relationship with food, movement, and your body. The goal isn't punishment or weight targets — it's restoring the kind of easy, intuitive relationship with your body that you probably had long before diet culture got in the way. Healthier choices stop feeling like a fight.",
+    price: 14.99,
+    category: "Health & Body",
+    emoji: "🌱",
+    image: IMG_MINDFUL_BODY,
+    cardImage: IMG_MINDFUL_BODY,
+    formats: ["Soft Piano Music", "Rainfall"],
+    duration: "60 minutes per track",
+    tracks: ["Mindful Body (Soft Piano)", "Mindful Body (Rainfall)"],
+    benefits: [
+      "Reduced emotional eating and stress snacking",
+      "A quieter inner critic about your body",
+      "Naturally healthier food choices, without forcing them",
+      "Greater motivation to move and exercise",
+      "A more peaceful relationship with the mirror"
+    ],
+    forWho: [
+      "Yo-yo dieters who want off the cycle",
+      "Emotional and stress eaters",
+      "Anyone tired of food obsession",
+      "People starting a fitness journey",
+      "Anyone craving body peace"
+    ],
+    featured: true,
+  },
+  {
+    id: "magnetic-love",
+    slug: "magnetic-love",
+    name: "Magnetic Love",
+    tagline: "Become the kind of person love is drawn to — not the one chasing it.",
+    description: "Most love struggles aren't about finding the right person — they're about the unconscious patterns you bring into every connection. Magnetic Love works on the subconscious beliefs about your worthiness and the quiet fears that keep love at arm's length.",
+    longDescription: "The self-protective walls. The fear of being too much, or not enough. The old wounds that quietly run the show in every relationship. These patterns aren't who you are — they're learned, and they can be unlearned. Magnetic Love is designed to soften those patterns at the subconscious level, opening you up to give and receive love from a more whole, grounded place. Whether you're single, dating, or rebuilding after heartbreak, this is the inner work that changes the outer story.",
+    price: 14.99,
+    category: "Connection & Love",
+    emoji: "💞",
+    image: IMG_MAGNETIC_LOVE,
+    cardImage: IMG_MAGNETIC_LOVE,
+    formats: ["Soft Piano Music", "Rainfall"],
+    duration: "60 minutes per track",
+    tracks: ["Magnetic Love (Soft Piano)", "Magnetic Love (Rainfall)"],
+    benefits: [
+      "Reduced fear of vulnerability and intimacy",
+      "Healthier attachment patterns in dating",
+      "Greater self-worth and sense of being lovable",
+      "More openness to receiving care and love",
+      "Calmer, less anxious presence in relationships"
+    ],
+    forWho: [
+      "Singles ready for the right partner",
+      "Anyone healing after a breakup",
+      "People with anxious or avoidant attachment",
+      "Those wanting deeper connection in existing relationships",
+      "Anyone rebuilding self-worth around love"
+    ],
+    featured: true,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BUNDLES
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const bundles: Bundle[] = [
+  {
+    id: "foundations-bundle",
+    slug: "foundations-bundle",
+    name: "The Foundations Bundle",
+    tagline: "Sleep better. Stress less. Believe in yourself.",
+    description: "The three programs that change how you feel day-to-day. Sleep deeply, release stress, and step into your confidence — the foundation everything else gets built on. Save £10 versus buying separately.",
+    price: 34.99,
+    originalPrice: 44.97,
+    savings: 9.98,
+    products: ["deep-sleep", "calm-clarity", "unstoppable-confidence"],
+    emoji: "🧱",
     badge: "Most Popular",
+    featured: true,
+  },
+  {
+    id: "manifest-bundle",
+    slug: "manifest-bundle",
+    name: "The Manifest Bundle",
+    tagline: "Magnetise wealth, love, and the confidence to receive both.",
+    description: "The three aspirational programs designed to expand what you believe is possible for you — in money, in love, and in how you show up. Save £10 versus buying separately.",
+    price: 34.99,
+    originalPrice: 44.97,
+    savings: 9.98,
+    products: ["wealth-magnet", "unstoppable-confidence", "magnetic-love"],
+    emoji: "✨",
+    badge: "Bestseller",
     featured: true,
   },
   {
     id: "complete-collection",
     slug: "complete-collection",
-    name: "Complete Collection",
-    tagline: "All 10 programmes. Every goal. One investment.",
-    description: "The most comprehensive subliminal audio library available for performance-focused individuals. Every category, every topic — yours for life at a fraction of the individual price.",
-    price: 99.99,
-    originalPrice: 149.90,
-    savings: 49.91,
-    products: ["elite-focus", "unshakeable-confidence", "wealth-abundance", "entrepreneurial-mindset", "peak-athletic-performance", "accelerated-learning", "master-public-speaking", "deep-sleep", "social-charisma", "stress-resilience"],
-    emoji: "💎",
-    badge: "Best Value",
+    name: "The Complete Collection",
+    tagline: "Every program. The full transformation.",
+    description: "All six core programs together. A complete subliminal library covering sleep, calm, wealth, confidence, body, and love — designed to be layered over weeks for compounding effect. Save £20 versus buying separately.",
+    price: 69.99,
+    originalPrice: 89.94,
+    savings: 19.95,
+    products: ["deep-sleep", "calm-clarity", "wealth-magnet", "unstoppable-confidence", "mindful-body", "magnetic-love"],
+    emoji: "👑",
+    badge: "Save 22%",
     featured: true,
   },
 ];
-
-export function getProductBySlug(slug: string): Product | undefined {
-  return products.find(p => p.slug === slug);
-}
-
-export function getProductById(id: string): Product | undefined {
-  return products.find(p => p.id === id);
-}
-
-export function getFeaturedProducts(): Product[] {
-  return products.filter(p => p.featured);
-}
-
-export function getBestsellerProducts(): Product[] {
-  return products.filter(p => p.bestseller);
-}

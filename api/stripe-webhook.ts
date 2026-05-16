@@ -34,64 +34,47 @@ interface DownloadInfo {
 }
 
 const productDownloads: Record<string, DownloadInfo> = {
-  "elite-focus": {
-    name: "Elite Focus",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-elite-focus.mp3",
-  },
-  "unshakeable-confidence": {
-    name: "Unshakeable Confidence",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-unshakeable-confidence.mp3",
-  },
-  "wealth-abundance": {
-    name: "Wealth & Abundance",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-wealth-abundance.mp3",
-  },
-  "entrepreneurial-mindset": {
-    name: "Entrepreneurial Mindset",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-entrepreneurial-mindset.mp3",
-  },
-  "peak-athletic-performance": {
-    name: "Peak Athletic Performance",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-peak-athletic-performance.mp3",
-  },
-  "accelerated-learning": {
-    name: "Accelerated Learning",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-accelerated-learning.mp3",
-  },
-  "master-public-speaking": {
-    name: "Master Public Speaking",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-master-public-speaking.mp3",
-  },
+  // ── 6 core programs ─────────────────────────────────────────
   "deep-sleep": {
     name: "Deep Sleep",
     downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-deep-sleep.mp3",
   },
-  "social-charisma": {
-    name: "Social Charisma",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-social-charisma.mp3",
+  "calm-clarity": {
+    name: "Calm & Clarity",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-calm-clarity.mp3",
   },
-  "stress-resilience": {
-    name: "Stress Resilience",
-    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-stress-resilience.mp3",
+  "wealth-magnet": {
+    name: "Wealth Magnet",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-wealth-magnet.mp3",
   },
-  "founders-focus-pack": {
-    name: "Founder's Focus Pack",
+  "unstoppable-confidence": {
+    name: "Unstoppable Confidence",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-unstoppable-confidence.mp3",
+  },
+  "mindful-body": {
+    name: "Mindful Body",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-mindful-body.mp3",
+  },
+  "magnetic-love": {
+    name: "Magnetic Love",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-magnetic-love.mp3",
+  },
+
+  // ── Bundles (expanded to constituent products by resolveDownloads) ──
+  "foundations-bundle": {
+    name: "The Foundations Bundle",
     downloadUrl: "",
-    bundleContents: ["elite-focus", "entrepreneurial-mindset", "stress-resilience"],
+    bundleContents: ["deep-sleep", "calm-clarity", "unstoppable-confidence"],
   },
-  "peak-performer-bundle": {
-    name: "Peak Performer Bundle",
+  "manifest-bundle": {
+    name: "The Manifest Bundle",
     downloadUrl: "",
-    bundleContents: ["elite-focus", "peak-athletic-performance", "unshakeable-confidence", "stress-resilience"],
+    bundleContents: ["wealth-magnet", "unstoppable-confidence", "magnetic-love"],
   },
   "complete-collection": {
-    name: "Complete Collection",
+    name: "The Complete Collection",
     downloadUrl: "",
-    bundleContents: [
-      "elite-focus", "unshakeable-confidence", "wealth-abundance", "entrepreneurial-mindset",
-      "peak-athletic-performance", "accelerated-learning", "master-public-speaking",
-      "deep-sleep", "social-charisma", "stress-resilience",
-    ],
+    bundleContents: ["deep-sleep", "calm-clarity", "wealth-magnet", "unstoppable-confidence", "mindful-body", "magnetic-love"],
   },
 };
 

@@ -25,10 +25,10 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#e5e7eb" }}>Programs</h4>
             <ul className="space-y-3">
               {[
-                { href: "/product/elite-focus", label: "Elite Focus" },
-                { href: "/product/unshakeable-confidence", label: "Unshakeable Confidence" },
-                { href: "/product/wealth-abundance", label: "Wealth & Abundance" },
-                { href: "/product/entrepreneurial-mindset", label: "Entrepreneurial Mindset" },
+                { href: "/product/deep-sleep", label: "Deep Sleep" },
+                { href: "/product/calm-clarity", label: "Calm & Clarity" },
+                { href: "/product/wealth-magnet", label: "Wealth Magnet" },
+                { href: "/product/unstoppable-confidence", label: "Unstoppable Confidence" },
                 { href: "/bundles", label: "Bundle Deals" },
               ].map(link => (
                 <li key={link.href}>
