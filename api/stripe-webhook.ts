@@ -15,13 +15,110 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import { Resend } from "resend";
-import { resolveDownloads } from "../shared/downloads";
 
 export const config = {
   api: {
     bodyParser: false, // MUST be disabled for Stripe signature verification
   },
 };
+
+// ── Product download mapping (inlined to avoid cross-directory imports) ─────
+// Maps each product ID to its name and direct download URL.
+// SECURITY: download URLs use unguessable suffixes; treat them as semi-secret.
+// ⚠️  Before going live: replace every "REPLACE-WITH-..." URL with the real
+// Bunny CDN URL for that product's MP3 file. Use random filenames.
+interface DownloadInfo {
+  name: string;
+  downloadUrl: string;
+  bundleContents?: string[];
+}
+
+const productDownloads: Record<string, DownloadInfo> = {
+  "elite-focus": {
+    name: "Elite Focus",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-elite-focus.mp3",
+  },
+  "unshakeable-confidence": {
+    name: "Unshakeable Confidence",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-unshakeable-confidence.mp3",
+  },
+  "wealth-abundance": {
+    name: "Wealth & Abundance",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-wealth-abundance.mp3",
+  },
+  "entrepreneurial-mindset": {
+    name: "Entrepreneurial Mindset",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-entrepreneurial-mindset.mp3",
+  },
+  "peak-athletic-performance": {
+    name: "Peak Athletic Performance",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-peak-athletic-performance.mp3",
+  },
+  "accelerated-learning": {
+    name: "Accelerated Learning",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-accelerated-learning.mp3",
+  },
+  "master-public-speaking": {
+    name: "Master Public Speaking",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-master-public-speaking.mp3",
+  },
+  "deep-sleep": {
+    name: "Deep Sleep",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-deep-sleep.mp3",
+  },
+  "social-charisma": {
+    name: "Social Charisma",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-social-charisma.mp3",
+  },
+  "stress-resilience": {
+    name: "Stress Resilience",
+    downloadUrl: "https://subliminalprime.b-cdn.net/downloads/REPLACE-WITH-stress-resilience.mp3",
+  },
+  "founders-focus-pack": {
+    name: "Founder's Focus Pack",
+    downloadUrl: "",
+    bundleContents: ["elite-focus", "entrepreneurial-mindset", "stress-resilience"],
+  },
+  "peak-performer-bundle": {
+    name: "Peak Performer Bundle",
+    downloadUrl: "",
+    bundleContents: ["elite-focus", "peak-athletic-performance", "unshakeable-confidence", "stress-resilience"],
+  },
+  "complete-collection": {
+    name: "Complete Collection",
+    downloadUrl: "",
+    bundleContents: [
+      "elite-focus", "unshakeable-confidence", "wealth-abundance", "entrepreneurial-mindset",
+      "peak-athletic-performance", "accelerated-learning", "master-public-speaking",
+      "deep-sleep", "social-charisma", "stress-resilience",
+    ],
+  },
+};
+
+function resolveDownloads(productIds: string[]): Array<{ id: string; name: string; downloadUrl: string }> {
+  const seen = new Set<string>();
+  const result: Array<{ id: string; name: string; downloadUrl: string }> = [];
+  for (const id of productIds) {
+    const item = productDownloads[id];
+    if (!item) continue;
+    if (item.bundleContents && item.bundleContents.length > 0) {
+      for (const childId of item.bundleContents) {
+        if (seen.has(childId)) continue;
+        const child = productDownloads[childId];
+        if (!child) continue;
+        seen.add(childId);
+        result.push({ id: childId, name: child.name, downloadUrl: child.downloadUrl });
+      }
+    } else {
+      if (seen.has(id)) continue;
+      seen.add(id);
+      result.push({ id, name: item.name, downloadUrl: item.downloadUrl });
+    }
+  }
+  return result;
+}
+
+// ── Request helpers ───────────────────────────────────────────────────────────
 
 async function getRawBody(req: VercelRequest): Promise<Buffer> {
   return new Promise((resolve, reject) => {
@@ -30,6 +127,15 @@ async function getRawBody(req: VercelRequest): Promise<Buffer> {
     req.on("end", () => resolve(Buffer.concat(chunks)));
     req.on("error", reject);
   });
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function buildDownloadEmail(
@@ -121,14 +227,7 @@ Inner Leader Ltd · 87 Warwick Street, Leamington Spa, CV32 4RJ · Company No. 0
   };
 }
 
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+// ── Handler ───────────────────────────────────────────────────────────────────
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -155,14 +254,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: message });
   }
 
-  // Handle events
   switch (event.type) {
     case "payment_intent.succeeded": {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       const amountGbp = paymentIntent.amount / 100;
       console.log(`Payment succeeded: ${paymentIntent.id} — £${amountGbp.toFixed(2)}`);
 
-      // ── Email delivery via Resend ───────────────────────────────
       const resendKey = process.env.RESEND_API_KEY;
       const fromAddress = process.env.ORDERS_FROM_EMAIL ?? "Subliminal Prime <orders@subliminalprime.com>";
       const replyTo = process.env.ORDERS_REPLY_TO ?? "support@subliminalprime.com";
@@ -213,8 +310,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : "Unknown email error";
         console.error(`Email delivery failed for ${paymentIntent.id}:`, message);
-        // Return 200 anyway so Stripe doesn't retry — we'll handle failed
-        // deliveries manually rather than have Stripe spam the webhook.
       }
       break;
     }
