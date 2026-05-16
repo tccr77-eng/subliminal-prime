@@ -308,3 +308,32 @@ export const bundles: Bundle[] = [
     featured: true,
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HELPER FUNCTIONS
+// (Pages and components import these — keep them stable when refactoring data.)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug);
+}
+
+export function getProductById(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
+}
+
+export function getFeaturedProducts(): Product[] {
+  return products.filter((p) => p.featured);
+}
+
+export function getBestsellers(): Product[] {
+  return products.filter((p) => p.bestseller);
+}
+
+export function getBundleBySlug(slug: string): Bundle | undefined {
+  return bundles.find((b) => b.slug === slug);
+}
+
+export function getBundleById(id: string): Bundle | undefined {
+  return bundles.find((b) => b.id === id);
+}
