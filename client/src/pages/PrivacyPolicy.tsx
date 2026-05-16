@@ -1,5 +1,5 @@
 // Privacy Policy Page — UK GDPR Compliant
-// ⚠️  BEFORE GOING LIVE: Replace all [PLACEHOLDER] values with your real business details
+// Company details filled in for Inner Leader Ltd (08973715, ICO ZA688599) — last reviewed 2026-05-16
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-xl font-700 text-[#1a1f2e] mt-8 mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>{children}</h2>
@@ -21,15 +21,15 @@ export default function PrivacyPolicy() {
 
             <p>
               This Privacy Policy explains how <strong>Subliminal Prime</strong>, operated by{" "}
-              <strong>[YOUR REGISTERED COMPANY NAME]</strong> (company number{" "}
-              <strong>[COMPANIES HOUSE NUMBER]</strong>), registered at{" "}
-              <strong>[YOUR REGISTERED BUSINESS ADDRESS, INCLUDING POSTCODE]</strong>{" "}
+              <strong>Inner Leader Ltd</strong> (company number{" "}
+              <strong>08973715</strong>), registered at{" "}
+              <strong>87 Warwick Street, Leamington Spa, CV32 4RJ</strong>{" "}
               ("we", "us", "our"), collects, uses, and protects your personal data when you visit{" "}
               <strong>subliminalprime.com</strong> or purchase our products.
             </p>
             <p>
               We are registered with the Information Commissioner's Office (ICO) under registration number{" "}
-              <strong>[YOUR ICO REGISTRATION NUMBER]</strong>. We act as the <strong>data controller</strong> for
+              <strong>ZA688599</strong>. We act as the <strong>data controller</strong> for
               the personal data described in this policy.
             </p>
             <p>
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
                     ["Stripe, Inc.", "Payment processing", "USA (EU-US Data Privacy Framework)"],
                     ["Vercel, Inc.", "Website hosting", "USA (Standard Contractual Clauses)"],
                     ["Bunny.net", "Content delivery network (images)", "EU / UK"],
-                    ["[EMAIL PROVIDER]", "Transactional email delivery", "[LOCATION]"],
+                    ["Resend, Inc.", "Transactional email delivery (download links, receipts)", "USA (Standard Contractual Clauses)"],
                   ].map(([processor, purpose, location], i) => (
                     <tr key={i} style={{ background: i % 2 === 0 ? "#faf9f7" : "#f7f6f3" }}>
                       <td className="p-3 border border-[#e4e2de] font-medium">{processor}</td>
@@ -264,9 +264,9 @@ export default function PrivacyPolicy() {
               contact our data controller:
             </p>
             <div className="p-5 rounded-xl mt-3" style={{ background: "#f2f0ec" }}>
-              <p className="font-semibold text-[#1a1f2e]">[YOUR REGISTERED COMPANY NAME]</p>
-              <p>[YOUR REGISTERED BUSINESS ADDRESS]</p>
-              <p>[CITY, POSTCODE]</p>
+              <p className="font-semibold text-[#1a1f2e]">Inner Leader Ltd</p>
+              <p>87 Warwick Street</p>
+              <p>Leamington Spa, CV32 4RJ</p>
               <p>United Kingdom</p>
               <p className="mt-2">
                 Email:{" "}
@@ -274,7 +274,7 @@ export default function PrivacyPolicy() {
                   privacy@subliminalprime.com
                 </a>
               </p>
-              <p>ICO Registration No.: <strong>[YOUR ICO REGISTRATION NUMBER]</strong></p>
+              <p>ICO Registration No.: <strong>ZA688599</strong></p>
             </div>
 
           </div>

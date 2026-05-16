@@ -28,7 +28,7 @@ export default function RefundPolicy() {
             <p>
               This Refund Policy applies to all digital products purchased from{" "}
               <strong>subliminalprime.com</strong> and is operated by{" "}
-              <strong>[YOUR REGISTERED COMPANY NAME]</strong>. It is written in accordance with the{" "}
+              <strong>Inner Leader Ltd</strong>. It is written in accordance with the{" "}
               <strong>Consumer Rights Act 2015</strong> and the{" "}
               <strong>Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013</strong>.
             </p>
@@ -114,9 +114,9 @@ export default function RefundPolicy() {
               For refund requests or questions about this policy, please contact us:
             </p>
             <div className="p-5 rounded-xl mt-3" style={{ background: "#f2f0ec" }}>
-              <p className="font-semibold text-[#1a1f2e]">[YOUR REGISTERED COMPANY NAME]</p>
-              <p>[YOUR REGISTERED BUSINESS ADDRESS]</p>
-              <p>[CITY, POSTCODE]</p>
+              <p className="font-semibold text-[#1a1f2e]">Inner Leader Ltd</p>
+              <p>87 Warwick Street</p>
+              <p>Leamington Spa, CV32 4RJ</p>
               <p>United Kingdom</p>
               <p className="mt-2">
                 Email:{" "}

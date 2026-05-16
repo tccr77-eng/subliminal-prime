@@ -1,5 +1,5 @@
 // Terms of Service Page — UK Law Compliant
-// ⚠️  BEFORE GOING LIVE: Replace all [PLACEHOLDER] values with your real business details
+// Company details filled in for Inner Leader Ltd (08973715) — last reviewed 2026-05-16
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-xl font-700 text-[#1a1f2e] mt-8 mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>{children}</h2>
@@ -23,9 +23,9 @@ export default function Terms() {
               These Terms of Service ("Terms") govern your use of the website{" "}
               <strong>subliminalprime.com</strong> (the "Site") and your purchase of digital products from{" "}
               <strong>Subliminal Prime</strong>, operated by{" "}
-              <strong>[YOUR REGISTERED COMPANY NAME]</strong> (company number{" "}
-              <strong>[COMPANIES HOUSE NUMBER]</strong>), registered at{" "}
-              <strong>[YOUR REGISTERED BUSINESS ADDRESS, INCLUDING POSTCODE]</strong>{" "}
+              <strong>Inner Leader Ltd</strong> (company number{" "}
+              <strong>08973715</strong>), registered at{" "}
+              <strong>87 Warwick Street, Leamington Spa, CV32 4RJ</strong>{" "}
               ("we", "us", "our").
             </p>
             <p>
@@ -40,9 +40,9 @@ export default function Terms() {
 
             <H2>1. About us</H2>
             <p>
-              <strong>[YOUR REGISTERED COMPANY NAME]</strong> is a company registered in England and Wales
-              (company number <strong>[COMPANIES HOUSE NUMBER]</strong>). Our registered office is at{" "}
-              <strong>[YOUR REGISTERED BUSINESS ADDRESS]</strong>. You can contact us at{" "}
+              <strong>Inner Leader Ltd</strong> is a company registered in England and Wales
+              (company number <strong>08973715</strong>). Our registered office is at{" "}
+              <strong>87 Warwick Street, Leamington Spa, CV32 4RJ</strong>. You can contact us at{" "}
               <a href="mailto:support@subliminalprime.com" className="underline text-[#4f6ef7]">
                 support@subliminalprime.com
               </a>.
@@ -172,7 +172,7 @@ export default function Terms() {
             <p>
               All content on this Site — including but not limited to audio files, text, images, graphics,
               logos, and the "Subliminal Prime" brand name and trade mark — is the intellectual property of{" "}
-              <strong>[YOUR REGISTERED COMPANY NAME]</strong> or its licensors and is protected by UK and
+              <strong>Inner Leader Ltd</strong> or its licensors and is protected by UK and
               international copyright, trade mark, and other intellectual property laws.
             </p>
             <p>
@@ -192,7 +192,7 @@ export default function Terms() {
 
             <H2>10. Limitation of liability</H2>
             <p>
-              To the maximum extent permitted by applicable law, <strong>[YOUR REGISTERED COMPANY NAME]</strong>{" "}
+              To the maximum extent permitted by applicable law, <strong>Inner Leader Ltd</strong>{" "}
               shall not be liable for any:
             </p>
             <ul className="list-disc pl-5 space-y-1">
@@ -248,9 +248,9 @@ export default function Terms() {
               For any questions about these Terms, please contact us:
             </p>
             <div className="p-5 rounded-xl mt-3" style={{ background: "#f2f0ec" }}>
-              <p className="font-semibold text-[#1a1f2e]">[YOUR REGISTERED COMPANY NAME]</p>
-              <p>[YOUR REGISTERED BUSINESS ADDRESS]</p>
-              <p>[CITY, POSTCODE]</p>
+              <p className="font-semibold text-[#1a1f2e]">Inner Leader Ltd</p>
+              <p>87 Warwick Street</p>
+              <p>Leamington Spa, CV32 4RJ</p>
               <p>United Kingdom</p>
               <p className="mt-2">
                 Email:{" "}

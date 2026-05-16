@@ -20,6 +20,8 @@ function PaymentForm({
   setLoading,
   subtotal,
   clearCart,
+  paymentIntentId,
+  productIds,
 }: {
   form: Record<string, string>;
   errors: Record<string, string>;
@@ -28,6 +30,8 @@ function PaymentForm({
   setLoading: (v: boolean) => void;
   subtotal: number;
   clearCart: () => void;
+  paymentIntentId: string | null;
+  productIds: string[];
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -54,10 +58,40 @@ function PaymentForm({
     setLoading(true);
     setPaymentError(null);
 
+    // Attach customer email + cart contents to the PaymentIntent so the
+    // webhook handler has what it needs to send the download email.
+    if (paymentIntentId) {
+      try {
+        const upd = await fetch("/api/update-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            paymentIntentId,
+            email: form.email,
+            customerName: `${form.firstName} ${form.lastName}`.trim(),
+            productIds,
+          }),
+        });
+        if (!upd.ok) {
+          const body = await upd.json().catch(() => ({}));
+          console.error("update-payment-intent failed:", body);
+          setPaymentError("We couldn't attach your details to the order. Please try again or contact support.");
+          setLoading(false);
+          return;
+        }
+      } catch (err) {
+        console.error("update-payment-intent network error:", err);
+        setPaymentError("Network error. Please try again.");
+        setLoading(false);
+        return;
+      }
+    }
+
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: `${window.location.origin}/order-confirmation`,
+        receipt_email: form.email,
         payment_method_data: {
           billing_details: {
             name: `${form.firstName} ${form.lastName}`,
@@ -330,6 +364,7 @@ export default function Checkout() {
   const [form, setForm] = useState({ email: "", firstName: "", lastName: "", address: "", city: "", postcode: "", country: "GB", card: "", expiry: "", cvc: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [paymentIntentId, setPaymentIntentId] = useState<string | null>(null);
 
   const handleChange = (field: string, value: string) => {
     setForm(prev => ({ ...prev, [field]: value }));
@@ -348,6 +383,7 @@ export default function Checkout() {
       .then(r => r.json())
       .then(data => {
         if (data.clientSecret) setClientSecret(data.clientSecret);
+        if (data.paymentIntentId) setPaymentIntentId(data.paymentIntentId);
       })
       .catch(err => console.error("PaymentIntent error:", err));
   }, [items, subtotal]);
@@ -442,6 +478,8 @@ export default function Checkout() {
                   setLoading={setLoading}
                   subtotal={subtotal}
                   clearCart={clearCart}
+                  paymentIntentId={paymentIntentId}
+                  productIds={items.map(i => i.id)}
                 />
               </Elements>
             ) : (
