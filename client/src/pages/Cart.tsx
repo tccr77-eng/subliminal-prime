@@ -14,7 +14,7 @@ export default function Cart() {
             <ShoppingBag size={32} className="text-[#9ca3af]" />
           </div>
           <h2 className="text-3xl font-800 text-[#1a1f2e] mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>Your cart is empty</h2>
-          <p className="text-[#6b7280] mb-8">Discover our library of 10 subliminal audio programs.</p>
+          <p className="text-[#6b7280] mb-8">Discover our library of six subliminal audio programmes.</p>
           <Link href="/shop"><button className="btn-primary">Browse Programs <ArrowRight size={16} /></button></Link>
         </div>
       </div>

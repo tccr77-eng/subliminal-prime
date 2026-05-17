@@ -64,13 +64,11 @@ export default function ProductDetail() {
             </h1>
             <p className="text-xl text-[#4b5563] mb-6 leading-relaxed">{product.tagline}</p>
 
-            {/* Rating */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#f59e0b" className="text-amber-400" />)}
-              </div>
-              <span className="text-sm font-semibold text-[#1a1f2e]">4.9</span>
-              <span className="text-sm text-[#9ca3af]">(127 reviews)</span>
+            {/* Trust line (replaces fabricated rating pre-launch — add real reviews when available) */}
+            <div className="flex items-center gap-2 mb-6 text-sm text-[#6b7280]">
+              <CheckCircle size={14} className="text-[#4f6ef7]" /> 30-day money-back guarantee
+              <span className="text-[#d1d5db]">·</span>
+              Instant MP3 download
             </div>
 
             {/* Price */}

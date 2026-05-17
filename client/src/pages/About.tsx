@@ -52,10 +52,10 @@ export default function About() {
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "10", label: "Performance Programs" },
+              { number: "6", label: "Focused Programmes" },
               { number: "2", label: "Audio Formats per Program" },
               { number: "30", label: "Day Money-Back Guarantee" },
-              { number: "10k+", label: "Satisfied Customers" },
+              { number: "30-day", label: "Money-back guarantee" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-5xl font-800 text-[#1a1f2e] mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>{stat.number}</div>
@@ -92,7 +92,7 @@ export default function About() {
       <section className="section-py" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <h2 className="text-4xl font-800 text-[#1a1f2e] mb-5" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>Ready to start?</h2>
-          <p className="text-[#4b5563] mb-8 max-w-md mx-auto">Browse our library of 10 precision-crafted subliminal programs and find the one that fits your goals.</p>
+          <p className="text-[#4b5563] mb-8 max-w-md mx-auto">Browse our six precision-crafted subliminal programmes and find the one that fits your goals.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/shop"><button className="btn-primary">Browse Programs <ArrowRight size={16} /></button></Link>
             <Link href="/the-science"><button className="btn-secondary">Read the Science</button></Link>

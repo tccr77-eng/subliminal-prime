@@ -11,46 +11,15 @@ const HERO_WOMAN_URL = HERO_WOMAN;
 const HERO_MAN_URL = HERO_MAN;
 const ABOUT_URL = ABOUT_IMAGE;
 
-const testimonials = [
-  {
-    name: "Sarah M.",
-    role: "Marketing Director",
-    text: "I was sceptical at first. Three weeks in, I noticed I was staying focused for hours without even trying. My team has noticed the difference too.",
-    rating: 5,
-    program: "Elite Focus",
-    image: "https://subliminalprime.b-cdn.net/avatar-sarah.jpg",
-  },
-  {
-    name: "James T.",
-    role: "Entrepreneur",
-    text: "The Confidence program changed how I show up in meetings. I stopped second-guessing myself and started closing deals I would have talked myself out of before.",
-    rating: 5,
-    program: "Unshakeable Confidence",
-    image: "https://subliminalprime.b-cdn.net/avatar-james.jpg",
-  },
-  {
-    name: "Priya K.",
-    role: "Medical Student",
-    text: "Accelerated Learning during my revision sessions genuinely changed how I retain information. My exam scores went up 18% this semester.",
-    rating: 5,
-    program: "Accelerated Learning",
-    image: "https://subliminalprime.b-cdn.net/avatar-priya.jpg",
-  },
-  {
-    name: "Marcus R.",
-    role: "Professional Athlete",
-    text: "I've worked with sports psychologists. This is the most accessible, consistent mental training tool I've found. I use it every night before competition.",
-    rating: 5,
-    program: "Peak Athletic Performance",
-    image: "https://subliminalprime.b-cdn.net/avatar-marcus.jpg",
-  },
-];
+const testimonials: Array<{ name: string; role: string; text: string; rating: number; program: string; image: string }> = [];
+// Testimonials intentionally empty pre-launch — UK CAP Code requires testimonials to be genuine, signed, and dated.
+// Add real customer quotes here as they come in via support@.
 
 const steps = [
   {
     number: "01",
     title: "Choose your program",
-    description: "Select the specific outcome you want to work on — focus, confidence, sleep, wealth mindset, or any of our 10 precision-crafted programs.",
+    description: "Select the specific outcome you want to work on — focus, confidence, sleep, wealth mindset, or any of our six precision-crafted programmes.",
   },
   {
     number: "02",
@@ -95,7 +64,7 @@ export default function Home() {
               <span style={{ color: "#4f6ef7" }}>Unlock your<br />potential.</span>
             </h1>
             <p className="text-lg text-[#4b5563] mb-8 leading-relaxed max-w-md">
-              Premium subliminal audio programs engineered for athletes, entrepreneurs, and high-performers who refuse to leave their potential on the table.
+              Premium subliminal audio programmes designed to support real shifts in how you sleep, think, and show up — built on published research, made to slip into a day you already have.
             </p>
             <div className="flex flex-wrap items-center gap-3 mb-10">
               <Link href="/shop">
@@ -126,7 +95,7 @@ export default function Home() {
                   {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#f59e0b" className="text-amber-400" />)}
                   <span className="text-sm font-semibold text-[#1a1f2e] ml-1">4.9</span>
                 </div>
-                <p className="text-xs text-[#6b7280]">Trusted by 10,000+ listeners</p>
+                <p className="text-xs text-[#6b7280]">Backed by peer-reviewed research</p>
               </div>
             </div>
           </div>
@@ -142,7 +111,7 @@ export default function Home() {
               { icon: <Download size={14} />, text: "Instant Digital Download" },
               { icon: <RefreshCw size={14} />, text: "Lifetime Access" },
               { icon: <CheckCircle size={14} />, text: "2 Audio Formats per Program" },
-              { icon: <Star size={14} />, text: "10,000+ Satisfied Customers" },
+              { icon: <Star size={14} />, text: "Backed by peer-reviewed research" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-sm text-[#4b5563]">
                 <span style={{ color: "#4f6ef7" }}>{item.icon}</span>
@@ -165,7 +134,7 @@ export default function Home() {
             </div>
             <Link href="/shop">
               <button className="btn-secondary text-sm shrink-0">
-                View All 10 Programs <ArrowRight size={14} />
+                View All Programmes <ArrowRight size={14} />
               </button>
             </Link>
           </div>
@@ -236,8 +205,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="section-py" style={{ background: "#f2f0ec" }}>
+      {/* ── TESTIMONIALS ── (hidden when no real testimonials are loaded) */}
+      {testimonials.length > 0 && (<section className="section-py" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="max-w-xl mb-12">
             <div className="section-label mb-3">Results</div>
@@ -270,7 +239,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section>)}
 
       {/* ── BUNDLE CTA ── */}
       <section className="section-py">
@@ -287,7 +256,7 @@ export default function Home() {
                   More programs.<br />More savings.
                 </h2>
                 <p className="text-[#9ca3af] leading-relaxed mb-8 max-w-md">
-                  Our bundles are curated for specific performance goals. Save up to £50 versus buying programs individually, with lifetime access to everything included.
+                  Our bundles are curated for specific performance goals. Save up to £19.95 versus buying programmes individually, with lifetime access to everything included.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/bundles">
@@ -299,9 +268,9 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-4">
                 {[
-                  { name: "Founder's Focus Pack", price: "£34.99", save: "Save £9.98", programs: "3 programs" },
-                  { name: "Peak Performer Bundle", price: "£54.99", save: "Save £19.96", programs: "5 programs", popular: true },
-                  { name: "Complete Collection", price: "£99.99", save: "Save £49.91", programs: "All 10 programs" },
+                  { name: "The Foundations Bundle", price: "£34.99", save: "Save £9.98", programs: "3 programmes" },
+                  { name: "The Manifest Bundle", price: "£34.99", save: "Save £9.98", programs: "3 programmes", popular: true },
+                  { name: "The Complete Collection", price: "£69.99", save: "Save £19.95", programs: "All 6 programmes" },
                 ].map((b, i) => (
                   <div key={i} className={`flex items-center justify-between p-4 rounded-xl ${b.popular ? "bg-[#4f6ef7]" : "bg-white/10"}`}>
                     <div>
@@ -325,7 +294,7 @@ export default function Home() {
             Your best self is one decision away.
           </h2>
           <p className="text-[#4b5563] text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-            Join over 10,000 people who have already started rewiring their minds. 30-day money-back guarantee. No risk.
+            Try a programme for 30 days. If it is not for you, reply to your receipt and we will refund you in full. No catch.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/shop">

@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
         🎧 Free instant download with every order ·{" "}
         <Link href="/bundles">
           <span className="underline cursor-pointer hover:opacity-80 transition-opacity" style={{ color: "#818cf8" }}>
-            Save up to £49 with bundles →
+            Save up to £20 with bundles →
           </span>
         </Link>
       </p>

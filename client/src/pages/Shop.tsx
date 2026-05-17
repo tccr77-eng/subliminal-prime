@@ -3,7 +3,7 @@ import { useState } from "react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 
-const categories = ["All", "Performance", "Mindset", "Communication", "Wellbeing"];
+const categories = ["All", "Rest & Recovery", "Mind & Wellbeing", "Mindset & Success", "Self-Mastery", "Health & Body", "Connection & Love"];
 
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -22,7 +22,7 @@ export default function Shop() {
             Find your program.
           </h1>
           <p className="text-[#4b5563] text-lg max-w-xl leading-relaxed">
-            Ten precision-crafted subliminal audio programs. Each one targets a specific, high-value performance outcome. Every program includes two audio formats — Soft Piano Music and Rainfall.
+            Six precision-crafted subliminal audio programmes. Each one targets a specific, high-value performance outcome. Every program includes two audio formats — Soft Piano Music and Rainfall.
           </p>
         </div>
       </section>
@@ -69,7 +69,7 @@ export default function Shop() {
               <h3 className="text-2xl lg:text-3xl font-700 text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700 }}>
                 Want more than one program?
               </h3>
-              <p className="text-[#9ca3af] text-sm">Save up to £49.91 with our curated bundles.</p>
+              <p className="text-[#9ca3af] text-sm">Save up to £19.95 with our curated bundles.</p>
             </div>
             <a href="/bundles">
               <button className="btn-blue shrink-0">

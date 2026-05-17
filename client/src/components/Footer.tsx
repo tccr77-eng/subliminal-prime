@@ -1,5 +1,6 @@
 // Footer — "Clarity" Design System
 import { Link } from "wouter";
+import { products } from "@/lib/products";
 
 export default function Footer() {
   return (
@@ -25,10 +26,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#e5e7eb" }}>Programs</h4>
             <ul className="space-y-3">
               {[
-                { href: "/product/deep-sleep", label: "Deep Sleep" },
-                { href: "/product/calm-clarity", label: "Calm & Clarity" },
-                { href: "/product/wealth-magnet", label: "Wealth Magnet" },
-                { href: "/product/unstoppable-confidence", label: "Unstoppable Confidence" },
+                ...products.map(p => ({ href: `/product/${p.slug}`, label: p.name })),
                 { href: "/bundles", label: "Bundle Deals" },
               ].map(link => (
                 <li key={link.href}>

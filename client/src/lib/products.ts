@@ -74,7 +74,7 @@ export const products: Product[] = [
     slug: "deep-sleep",
     name: "Deep Sleep",
     tagline: "Drift into the restorative sleep your body has been waiting for.",
-    description: "Stop fighting your mind at 3am. Deep Sleep is engineered to ease your nervous system into the kind of restorative rest that resets your energy, mood, and clarity — naturally, without medication.",
+    description: "Stop fighting your mind at 3am. Deep Sleep is engineered to ease your nervous system into the kind of restorative rest that resets your energy, mood, and clarity — built into the moment you already use to fall asleep.",
     longDescription: "Sleep isn't really about hours — it's about depth. Most people who say they sleep badly aren't waking up tired because they didn't get enough hours; they're waking up tired because their nervous system never fully wound down. Deep Sleep layers carefully chosen affirmations beneath calming ambient audio to quiet mental chatter, signal safety to the body, and ease you into the deep, restorative sleep where the real recovery happens. Play it as you fall asleep, or keep it running through the night. Most listeners notice a difference within the first week.",
     price: 14.99,
     category: "Rest & Recovery",
@@ -119,7 +119,7 @@ export const products: Product[] = [
     benefits: [
       "A quieter, less reactive inner narrative",
       "Greater capacity to handle pressure without spiralling",
-      "Deeper, easier breathing throughout the day",
+      "A calmer baseline as the day unfolds",
       "Improved sleep as anxiety patterns soften",
       "More space between trigger and response"
     ],
@@ -201,8 +201,8 @@ export const products: Product[] = [
     slug: "mindful-body",
     name: "Mindful Body",
     tagline: "Build a peaceful relationship with food, movement, and how you feel in your skin.",
-    description: "Diets fail because they fight the subconscious instead of working with it. Mindful Body is designed to soften the patterns that quietly drive emotional eating, body criticism, and the daily battle with willpower — and replace them with peace.",
-    longDescription: "The cravings, the late-night snacking, the negative self-talk in the mirror — these aren't choices you're making in the moment; they're patterns running in the background. Mindful Body works at the subconscious level to soften unhelpful patterns and reinforce a calmer, more loving relationship with food, movement, and your body. The goal isn't punishment or weight targets — it's restoring the kind of easy, intuitive relationship with your body that you probably had long before diet culture got in the way. Healthier choices stop feeling like a fight.",
+    description: "The relationship most of us have with food and our body is not really a choice we make at each meal — it is a set of patterns running underneath. Mindful Body is designed to soften the inner critic and support a calmer, kinder default.",
+    longDescription: "The cravings, the comparison, the running commentary in the mirror — these are not choices you are making in the moment. They are patterns picked up over years. Mindful Body works at the subconscious level to support a more peaceful relationship with food, movement, and your body. It is not a weight-loss tool and it has nothing to say about your size. It is about restoring the kind of easy, intuitive relationship with your body that most of us had before diet culture got in the way.",
     price: 14.99,
     category: "Health & Body",
     emoji: "🌱",
@@ -214,9 +214,9 @@ export const products: Product[] = [
     benefits: [
       "Reduced emotional eating and stress snacking",
       "A quieter inner critic about your body",
-      "Naturally healthier food choices, without forcing them",
+      "Less mental noise around food and eating",
       "Greater motivation to move and exercise",
-      "A more peaceful relationship with the mirror"
+      "A kinder inner voice when you catch your reflection"
     ],
     forWho: [
       "Yo-yo dieters who want off the cycle",
