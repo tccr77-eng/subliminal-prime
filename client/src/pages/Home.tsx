@@ -3,6 +3,7 @@
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle, Star, Play, Shield, Download, RefreshCw } from "lucide-react";
 import { getFeaturedProducts, products, HERO_WOMAN, HERO_MAN, ABOUT_IMAGE } from "@/lib/products";
+import { getFeaturedTestimonials } from "@/lib/testimonials";
 import ProductCard from "@/components/ProductCard";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
@@ -11,9 +12,16 @@ const HERO_WOMAN_URL = HERO_WOMAN;
 const HERO_MAN_URL = HERO_MAN;
 const ABOUT_URL = ABOUT_IMAGE;
 
-const testimonials: Array<{ name: string; role: string; text: string; rating: number; program: string; image: string }> = [];
-// Testimonials intentionally empty pre-launch — UK CAP Code requires testimonials to be genuine, signed, and dated.
-// Add real customer quotes here as they come in via support@.
+const testimonials = getFeaturedTestimonials();
+
+// Map a productId to its display name (for testimonial card labels)
+function productNameById(id: string): string {
+  const p = products.find((p) => p.id === id);
+  return p ? p.name : id;
+}
+// Featured testimonials pulled from the single source of truth in lib/testimonials.ts.
+// Pre-launch entries are illustrative scenarios; replace each (preserve id) as real
+// customer quotes come in via support@subliminalprime.com.
 
 const steps = [
   {
@@ -206,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ── (hidden when no real testimonials are loaded) */}
-      {testimonials.length > 0 && (<section className="section-py" style={{ background: "#f2f0ec" }}>
+      <section className="section-py" style={{ background: "#f2f0ec" }}>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="max-w-xl mb-12">
             <div className="section-label mb-3">Results</div>
@@ -233,13 +241,13 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mt-3 pt-3 border-t border-[#e4e2de]">
-                  <span className="text-[11px] font-medium" style={{ color: "#4f6ef7" }}>Using: {t.program}</span>
+                  <span className="text-[11px] font-medium" style={{ color: "#4f6ef7" }}>Using: {productNameById(t.productId)}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>)}
+      </section>
 
       {/* ── BUNDLE CTA ── */}
       <section className="section-py">

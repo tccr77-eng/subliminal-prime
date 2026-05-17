@@ -3,6 +3,7 @@ import { useParams, Link } from "wouter";
 import { useEffect } from "react";
 import { ShoppingBag, CheckCircle, ArrowRight, Star, ChevronLeft, Music, CloudRain } from "lucide-react";
 import { getProductBySlug, products } from "@/lib/products";
+import { getProductTestimonials } from "@/lib/testimonials";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import ProductCard from "@/components/ProductCard";
@@ -10,6 +11,7 @@ import ProductCard from "@/components/ProductCard";
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>();
   const product = getProductBySlug(slug || "");
+  const productTestimonials = product ? getProductTestimonials(product.id) : [];
   const { addItem, isInCart } = useCart();
 
   // Scroll to top whenever the product slug changes
@@ -183,6 +185,39 @@ export default function ProductDetail() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {related.map(p => <ProductCard key={p.id} product={p} />)}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── PRODUCT TESTIMONIALS ── */}
+      {productTestimonials.length > 0 && (
+        <section className="border-t border-[#e4e2de]" style={{ background: "#faf9f7" }}>
+          <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+            <div className="max-w-xl mb-10">
+              <div className="section-label mb-3">From people using it</div>
+              <h2 className="text-3xl lg:text-4xl font-800 text-[#1a1f2e]" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800 }}>
+                What {product.name} listeners are saying.
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {productTestimonials.map((t) => (
+                <div key={t.id} className="card-clean p-6 flex flex-col">
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(t.rating)].map((_, j) => (
+                      <Star key={j} size={13} fill="#f59e0b" className="text-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-[15px] text-[#374151] leading-relaxed flex-1 mb-5">"{t.text}"</p>
+                  <div className="flex items-center gap-3 mt-auto">
+                    <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
+                    <div>
+                      <div className="text-sm font-semibold text-[#1a1f2e]" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{t.name}</div>
+                      <div className="text-xs text-[#9ca3af]">{t.role}{t.location ? ` · ${t.location}` : ""}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

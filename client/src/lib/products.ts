@@ -57,10 +57,10 @@ const ABOUT_IMAGE = "https://subliminalprime.b-cdn.net/about-lifestyle.jpg";
 // e-commerce (eMarketer / DTC wellness brand case studies, 2026).
 const IMG_DEEP_SLEEP = "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=800&h=1000&fit=crop&crop=center";
 const IMG_CALM_CLARITY = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=1000&fit=crop&crop=center";
-const IMG_WEALTH_MAGNET = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1000&fit=crop&crop=center";
+const IMG_WEALTH_MAGNET = "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=1000&fit=crop&crop=center";
 const IMG_UNSTOPPABLE_CONFIDENCE = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop&crop=face";
 const IMG_MINDFUL_BODY = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=1000&fit=crop&crop=center";
-const IMG_MAGNETIC_LOVE = "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800&h=1000&fit=crop&crop=center";
+const IMG_MAGNETIC_LOVE = "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&h=1000&fit=crop&crop=center";
 
 export { HERO_WOMAN, HERO_MAN, PORTRAIT_WOMAN, PORTRAIT_MAN, ABOUT_IMAGE };
 
